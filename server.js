@@ -25,14 +25,14 @@ app.use(methodOverride('_method'));
 
 //Root Route
 app.get('/', (req, res) => {
-    res.render('index');
+    res.send('index');
 });
 
 //Menu Route
-//app.use('/menu', controllers.menu);
+app.use('/menu', controllers.menu);
 
 //Item Route
-//app.use('/items', controller.items); //How to do it like PandaExpress?
+app.use('/items', controllers.items);
 
 //Binding Server to Port
 app.listen(PORT, () => {

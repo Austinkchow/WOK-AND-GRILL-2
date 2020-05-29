@@ -1,4 +1,4 @@
 module.exports = {
-    fruits: require('./items'),
-    cars: require('./menu')
+    items: require('./items'),
+    menu: require('./menu')
 }
