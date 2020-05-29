@@ -8,7 +8,7 @@ const menuSchema = new mongoose.Schema({
 })
 
 /* set up model */
-const Menu = mongoose.Collection('menu', menuSchema);
+const Menu = mongoose.model('Menu', menuSchema);
 
 /* exports model */
 module.exports = Menu;

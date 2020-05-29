@@ -25,7 +25,7 @@ app.use(methodOverride('_method'));
 
 //Root Route
 app.get('/', (req, res) => {
-    res.send('index');
+    res.render('index');
 });
 
 //Menu Route
