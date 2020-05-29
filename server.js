@@ -4,7 +4,7 @@ const bodyParser = require('body-parser');
 const methodOverride = require('method-override');
 
 /* Internal Modules */
-controller = require('./controllers');
+const controllers = require('./controllers');
 
 /* Instance Module */
 const app = express();
@@ -13,25 +13,28 @@ const app = express();
 const PORT = 4000;
 
 /* app configuration */
-app.use('view engine', 'ejs');
+app.set('view engine', 'ejs');
 
 /* Middleware */
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({
+    extended: false
+}));
 app.use(methodOverride('_method'));
 
 /* Routes */
 
 //Root Route
 app.get('/', (req, res) => {
-  res.render('index');
+    res.render('index');
 });
 
 //Menu Route
-app.use('/menu', controllers.menu);
+//app.use('/menu', controllers.menu);
 
-//How to direct a item route
+//Item Route
+//app.use('/items', controller.items); //How to do it like PandaExpress?
 
 //Binding Server to Port
 app.listen(PORT, () => {
-  console.log(`Listening http://localhost:${PORT}`);
+    console.log(`Listening http://localhost:${PORT}`);
 });
