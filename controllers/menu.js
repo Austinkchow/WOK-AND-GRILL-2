@@ -6,24 +6,32 @@ const db = require('../models');
 
 //index route
 router.get('/', (req, res) => {
-    res.render('menu/index')
-})
+  db.Menu.find({}, (error, allMenu) => {
+    if (error) {
+      console.log(error);
+    } else {
+      const context = {
+        allMenu: allMenu,
+      };
+      res.render('menu/index', context);
+    }
+  });
+});
 
 //new route
 router.get('/new', (req, res) => {
-    res.render('menu/new')
-})
+  res.render('menu/new');
+});
 
 //create route
 router.post('/', (req, res) => {
-    db.Menu.create(req.body, (error, addedMenu) => {
-        if (error) {
-            console.log(error);
-        } else {
-            res.redirect('/');
-        }
-    })
-
-})
+  db.Menu.create(req.body, (error, addedMenu) => {
+    if (error) {
+      console.log(error);
+    } else {
+      res.redirect('/menu');
+    }
+  });
+});
 
 module.exports = router;

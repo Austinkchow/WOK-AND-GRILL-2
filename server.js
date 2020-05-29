@@ -16,16 +16,18 @@ const PORT = 4000;
 app.set('view engine', 'ejs');
 
 /* Middleware */
-app.use(bodyParser.urlencoded({
-    extended: false
-}));
+app.use(
+  bodyParser.urlencoded({
+    extended: false,
+  })
+);
 app.use(methodOverride('_method'));
 
 /* Routes */
 
 //Root Route
 app.get('/', (req, res) => {
-    res.render('index');
+  res.render('index');
 });
 
 //Menu Route
@@ -36,5 +38,5 @@ app.use('/items', controllers.items);
 
 //Binding Server to Port
 app.listen(PORT, () => {
-    console.log(`Listening http://localhost:${PORT}`);
+  console.log(`Listening http://localhost:${PORT}`);
 });
