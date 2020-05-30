@@ -1,0 +1,19 @@
+/* Bring in Mongoose */
+const mongoose = require("mongoose");
+
+/* Set up Schema */
+const itemSchema = new mongoose.Schema({
+    name: {type: String},
+    image: {type: String},
+    description: {type: String},
+    price: {type: Number},
+    menus:[{
+        type:mongoose.Schema.Types.ObjectId,    // accept id's only
+        ref: 'Menu'                             // accept id's from Menu
+    }]
+});
+/* Set up model */
+const Item = mongoose.model("Item", itemSchema);
+
+/* Exports model */
+module.exports = Item;
