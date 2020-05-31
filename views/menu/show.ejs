@@ -9,11 +9,16 @@
 
 <body>
     <h1>Menu Category Show Page</h1>
+    <a href="/">Main page</a>
+    <a href="/menu">Menu</a>
     <a href="/menu/<%= foundMenu._id %>/edit ">edit</a>
     <p>
         Name: <%= foundMenu.name %>
     </p>
     <img src="<%= foundMenu.image %> " alt="Menu picture">
+    <form action="/menu/<%= foundMenu._id %>?_method=DELETE " method="POST">
+        <input type="submit" value="Delete">
+    </form>
 </body>
 
 </html>
