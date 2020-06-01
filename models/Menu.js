@@ -14,7 +14,7 @@ const menuSchema = new mongoose.Schema({
         //specific for Item collection
         ref: 'Item'
     }]
-})
+});
 
 /* set up model */
 const Menu = mongoose.model('Menu', menuSchema);
