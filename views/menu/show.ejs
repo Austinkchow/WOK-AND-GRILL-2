@@ -30,13 +30,6 @@
     </div>
     <br />
 
-    <!-- Item List -->
-    <!-- Example place holder -->
-    <div>
-      <a href="/items/item-display">Items</a>
-    </div>
-    <br />
-
     <!-- Delete Button -->
     <form action="/menu/<%= foundMenu._id %>?_method=DELETE " method="POST">
       <input type="submit" value="Delete" />
@@ -48,14 +41,10 @@
       <!-- Create New Item -->
       <div class="item-create/edit">
         <a href="/items/new">Create New Item</a>
-        <!-- TODO: link to item id route -->
-        <a href="#"></a>
       </div>
 
       <!-- Number of Items -->
-      <% foundMenu.items.forEach(item =>{ %>
-      <p><a href="/items/<%= item._id %> "><%= item.name %> </a></p>
-      <% }) %>
+      <%= foundMenu.items %>
     </section>
   </body>
 </html>

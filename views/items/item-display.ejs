@@ -1,41 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Items</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <!-- Header Section -->
     <header>
-        <!-- Title -->
-        <h1>Dish</h1>
-        <!-- Navagation Bar -->
-        <nav>
-            <a href="/">Home</a>
-            <a href="/menu">Menu</a>
-            <a href="/items">Items List</a>
-        </nav>
+      <!-- Title -->
+      <h1>Dish</h1>
+      <!-- Navagation Bar -->
+      <nav>
+        <a href="/">Home</a>
+        <a href="/menu">Menu</a>
+        <a href="/items">Items List</a>
+      </nav>
     </header>
 
     <!-- Dish Contents-->
     <main>
-        <div class="item-container">
-            <!-- Item Name -->
-            <h3>Item Name: <%= item.name %> </h3>
-            <!-- Item Picture -->
-            <img src="item.image" alt="item image">
-            <!-- Price -->
-            <p>Price: <%= item.price %> </p>
-            <!-- Spiciness -->
-            <p>Spicy: <%= item.spicy %> </p>
-            <!-- Description -->
-            <p>Description: <%= item.description %></p>
-        </div>
-
+      <div class="item-container">
+        <!-- Item Name -->
+        <h3><%= item.name %></h3>
+        <!-- Item Picture -->
+        <img src="item.image" alt="item image" />
+        <!-- Price -->
+        <p>Price: <%= item.price %></p>
+        <!-- Spiciness -->
+        <p>Spicy: <%= item.spicy %></p>
+        <!-- Description -->
+        <p><%= item.description %></p>
+      </div>
     </main>
-</body>
-
+  </body>
 </html>
