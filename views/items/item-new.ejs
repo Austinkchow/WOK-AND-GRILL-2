@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <!-- Title -->
+        <h1>Dish</h1>
+        <!-- Navagation Bar -->
+        <nav>
+            <a href="/">Home</a>
+            <a href="/menu">Menu</a>
+            <a href="/items"></a>
+        </nav>
+    </header>
+    <!-- Item Creation Section -->
+    <main>
+        <div class = "Item Container">
+            <!-- post to menu show page -->
+            <form action="/items" method="post">
+                <!-- Item name -->
+                <label for="name">Name</label>
+                <input type="text" name="name" id="">
+                <!-- Item Picture -->
+                <label for="image">Image</label>
+                <input type="text" name="image">
+                <!-- Price -->
+                <label for="price">Price</label>
+                <input type="number" name="price" id="">
+                <!-- Spiciness -->
+                <label for="spiciness">Spicy</label>
+                <input type="range" name="spiciness" id="">
+                <!-- Description -->
+                <label for="description">Description</label>
+                <input type="textarea" name="description" id="">
+                <!-- Submit Button -->
+                <input type="submit" value="Create Item">
+            </form>
+        </div>      
+    </main>
+</body>
+</html>
