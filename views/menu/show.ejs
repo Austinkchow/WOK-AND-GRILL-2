@@ -8,14 +8,23 @@
 </head>
 
 <body>
+    <!-- Title -->
     <h1>Menu Category Show Page</h1>
+    <!-- Nav Bar -->
     <a href="/">Main page</a>
     <a href="/menu">Menu</a>
+    <!-- Edit Button -->
     <a href="/menu/<%= foundMenu._id %>/edit ">edit</a>
     <p>
         Name: <%= foundMenu.name %>
     </p>
+    <!-- Item Image -->
     <img src="<%= foundMenu.image %> " alt="Menu picture">
+    <!-- Item List -->
+    <!-- Example place holder -->
+    <span><a href="/items">Items</a></span>
+    <span><a href="/items">Items</a></span>
+    <!-- Delete Button -->
     <form action="/menu/<%= foundMenu._id %>?_method=DELETE " method="POST">
         <input type="submit" value="Delete">
     </form>
