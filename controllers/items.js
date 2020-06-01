@@ -19,11 +19,37 @@ router.get("/", async function(req,res){
         const context = {item: oneItem};
         res.render("items/item-display");
     }catch(error){
-        console.log("error");
+        console.log(error.errmsg);
         res.send({message: "Internal Server Error"});
     }
 });
 /* new route */
+router.get("/new", async function(req,res){
+    try{
+        //run code
+        res.render("items/item-new");
+    }catch(error){
+        console.log(error.errmsg);
+        res.send({message: "Interal Server Error"});
+    }
+});
+/* create route */
+router.post("/", async function(req, res){
+    try {
+        //run code
+        const createItem = await db.Item.create(req.body);
+        res.redirect("/items");
+    } catch (error) {
+        console.log(error.errmsg);
+        res.send({message: "Interal Server Error"});
+    }
+});
+/* edit route */
+
+/* update route */
+
+/* delete route */
+
 
 /* Export Router */
 module.exports = router;
