@@ -11,56 +11,75 @@ const db = require('../models');
 
 /* item-display route */
 // TODO: change render to render the menu show page by menu ID
-router.get("/", async function(req,res){
-    try{
+router.get("/", async function (req, res) {
+    try {
         // run code
         const allItem = await db.Item.find({});
-        const context = {items: allItem};
+        const context = {
+            items: allItem
+        };
         res.render("items/item-index", context);
-    }catch(error){
+    } catch (error) {
         console.log(error);
-        res.send({message: "Internal Server Error"});
+        res.send({
+            message: "Internal Server Error"
+        });
     }
 });
 
 /* new route */
-router.get("/new", async function(req,res){
-    try{
+router.get("/new", async function (req, res) {
+    try {
+        const allMenu = await db.Menu.find({});
+        const context = {
+            allMenu: allMenu
+        }
         //run code
-        res.render("items/item-new");
-    }catch(error){
+        res.render("items/item-new", context);
+    } catch (error) {
         console.log(error);
-        res.send({message: "Interal Server Error"});
+        res.send({
+            message: "Internal Server Error"
+        });
     }
 });
 
 /* create route */
-router.post("/", async function(req, res){
+router.post("/", async function (req, res) {
     try {
         //run code
         const createItem = await db.Item.create(req.body);
+        const foundMenu = await db.Menu.findById(createItem.menus);
+        foundMenu.items.push(createItem);
+        foundMenu.save();
         res.redirect("/items");
     } catch (error) {
         console.log(error);
-        res.send({message: "Interal Server Error"});
+        res.send({
+            message: "Internal Server Error"
+        });
     }
 });
 
 /* show route*/
-router.get("/:id", async function(req,res){
-    try{
+router.get("/:id", async function (req, res) {
+    try {
         // run code
         const foundItem = await db.Item.findById(req.params.id);
-        const context = {item: foundItem};
+        const context = {
+            item: foundItem
+        };
         res.render("items/item-display");
-    }catch(error){
+    } catch (error) {
         console.log(error);
-        res.send({message: "Internal Server Error"});
+        res.send({
+            message: "Internal Server Error"
+        });
     }
 });
 
 /* edit route */
-router.get("/:id/edit", async function(req,res){
+router.get("/:id/edit", async function (req, res) {
     try {
         //run code
         const foundItem = await db.Item.findById(req.params.id);
@@ -70,18 +89,22 @@ router.get("/:id/edit", async function(req,res){
         res.render("items/item-edit", context);
     } catch (error) {
         console.log(error);
-        res.send({message: "Internal Server Error"});
+        res.send({
+            message: "Internal Server Error"
+        });
     }
 });
 
 /* update route */
-router.put("/:id", async function(req,res){
+router.put("/:id", async function (req, res) {
     try {
         //run code
 
     } catch (error) {
         console.log(error);
-        res.send({message: "Internal Server Error"});        
+        res.send({
+            message: "Internal Server Error"
+        });
     }
 });
 
