@@ -52,7 +52,7 @@ router.get("/:id", async function(req,res){
         // run code
         const foundItem = await db.Item.findById(req.params.id);
         const context = {item: foundItem};
-        res.render("items/item-display");
+        res.render("items/item-display",context);
     }catch(error){
         console.log(error);
         res.send({message: "Internal Server Error"});
@@ -78,7 +78,8 @@ router.get("/:id/edit", async function(req,res){
 router.put("/:id", async function(req,res){
     try {
         //run code
-
+        const updatedItem = await db.Item.findByIdAndUpdate(req.params.id, req.body,{new:true});
+        res.redirect('/items/' + updatedItem._id);
     } catch (error) {
         console.log(error);
         res.send({message: "Internal Server Error"});        
@@ -86,6 +87,16 @@ router.put("/:id", async function(req,res){
 });
 
 /* delete route */
+router.delete("/:id", async function(req,res){
+    try {
+        //run code
+        const deletedItem = await db.Item.findByIdAndDelete(req.params.id);
+        res.redirect("/items");
+    } catch (error) {
+        console.log(error);
+        res.send({message: "Internal Server Error"});           
+    }
+});
 
 
 /* Export Router */

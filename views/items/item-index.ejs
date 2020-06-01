@@ -33,6 +33,9 @@
             <% items.forEach( element => {%>
                 <li>
                     <a href="/items/<%= element._id %> "><%= element.name %></a>
+                    <a href="/items/<%= element._id %>/edit">Edit</a>
+                    <!-- delete -->
+                    <form action="/items/<%= element._id %>?_method=DELETE" method="POST"><input type="submit" value="Delete"></form>
                 </li>
             <%}) %>
         </ul>
