@@ -34,4 +34,59 @@ router.post('/', (req, res) => {
   });
 });
 
+//Show route
+router.get('/:index', (req, res) => {
+  db.Menu.findById(req.params.index, (error, foundMenu) => {
+    if (error) {
+      console.log(error);
+    } else {
+      const context = {
+        foundMenu: foundMenu,
+      };
+      res.render('menu/show', context);
+    }
+  });
+});
+
+//edit route
+router.get('/:index/edit', (req, res) => {
+  db.Menu.findById(req.params.index, (error, editedMenu) => {
+    if (error) {
+      console.log(error);
+    } else {
+      const context = {
+        editedMenu: editedMenu,
+      };
+      res.render('menu/edit', context);
+    }
+  });
+});
+
+//update route
+router.put('/:index', (req, res) => {
+  db.Menu.findByIdAndUpdate(
+    req.params.index,
+    req.body, {
+      new: true
+    },
+    (error, updatedMenu) => {
+      if (error) {
+        console.log(error);
+      } else {
+        res.redirect(`/menu/${updatedMenu._id}`);
+      }
+    }
+  );
+});
+
+//delete route
+router.delete('/:index', (req, res) => {
+  db.Menu.findByIdAndDelete(req.params.index, (error, deleteMenu) => {
+    if (error) {
+      console.log(error);
+    } else {
+      res.redirect('/menu');
+    }
+  });
+});
 module.exports = router;
