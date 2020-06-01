@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Items</title>
 </head>
+
 <body>
     <!-- Header Section -->
     <header>
@@ -20,23 +22,20 @@
 
     <!-- Dish Contents-->
     <main>
-        <div class = "item-container">
+        <div class="item-container">
             <!-- Item Name -->
-            <h3>Item Name</h3>
+            <h3>Item Name: <%= item.name %> </h3>
             <!-- Item Picture -->
-            <textarea name="picture" id="" cols="30" rows="10"></textarea>
+            <img src="item.image" alt="item image">
             <!-- Price -->
-            <p>Price: $10 </p>
+            <p>Price: <%= item.price %> </p>
             <!-- Spiciness -->
-            <p>Spicy: 4/5</p>
+            <p>Spicy: <%= item.spicy %> </p>
             <!-- Description -->
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
-                Fugiat at nihil sapiente ad earum iste enim aperiam commodi 
-                odio quibusdam praesentium omnis, rem vitae tenetur! 
-                Harum voluptate rerum soluta dolor.
-            </p>
+            <p>Description: <%= item.description %></p>
         </div>
 
     </main>
 </body>
+
 </html>

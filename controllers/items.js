@@ -69,7 +69,7 @@ router.get("/:id", async function (req, res) {
         const context = {
             item: foundItem
         };
-        res.render("items/item-display");
+        res.render("items/item-display", context);
     } catch (error) {
         console.log(error);
         res.send({
@@ -77,6 +77,7 @@ router.get("/:id", async function (req, res) {
         });
     }
 });
+
 
 /* edit route */
 router.get("/:id/edit", async function (req, res) {

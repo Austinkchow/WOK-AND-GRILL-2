@@ -36,16 +36,17 @@ router.post('/', (req, res) => {
 
 //Show route
 router.get('/:index', (req, res) => {
-  db.Menu.findById(req.params.index, (error, foundMenu) => {
-    if (error) {
-      console.log(error);
-    } else {
-      const context = {
-        foundMenu: foundMenu,
-      };
-      res.render('menu/show', context);
-    }
-  });
+  db.Menu.findById(req.params.index).populate("items").exec(
+    function (error, foundMenu) {
+      if (error) {
+        console.log(error);
+      } else {
+        const context = {
+          foundMenu: foundMenu,
+        };
+        res.render('menu/show', context);
+      }
+    })
 });
 
 //edit route
