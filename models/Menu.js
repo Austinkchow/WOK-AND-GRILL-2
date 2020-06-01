@@ -3,8 +3,17 @@ const mongoose = require('mongoose');
 
 /* Set up Schema */
 const menuSchema = new mongoose.Schema({
-    name: String,
-    image: String
+    name: {
+        type: String,
+        required: true
+    },
+    image: String,
+    items: [{
+        //only accept ids
+        type: mongoose.Schema.Types.ObjectId,
+        //specific for Item collection
+        ref: 'Item'
+    }]
 })
 
 /* set up model */
