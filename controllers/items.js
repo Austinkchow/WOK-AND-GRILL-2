@@ -12,15 +12,25 @@ const db = require('../models');
 /* Root Route: /items */
 
 /* item-display route */
-router.get("/", async function(req,res){
-    try{
+router.get("/", async function (req, res) {
+    try {
         // run code
         const oneItem = await db.Item.findOne({});
-        const context = {item: oneItem};
+        const context = {
+            item: oneItem
+        };
         res.render("items/item-display");
+<<<<<<< HEAD
     }catch(error){
         console.log(error.errmsg);
         res.send({message: "Internal Server Error"});
+=======
+    } catch (error) {
+        console.log("error");
+        res.send({
+            message: "Internal Server Error"
+        });
+>>>>>>> submaster
     }
 });
 /* new route */
