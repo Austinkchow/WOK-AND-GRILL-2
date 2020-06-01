@@ -8,25 +8,33 @@
 </head>
 
 <body>
-    <!-- Title -->
-    <h1>Menu Category Show Page</h1>
-    <!-- Nav Bar -->
-    <a href="/">Main page</a>
-    <a href="/menu">Menu</a>
+    <!-- Header Section -->
+    <header>
+        <!-- Title -->
+        <h1><%= foundMenu.name %> Index Page</h1>
+        <!-- Navagation Bar -->
+        <nav>
+            <a href="/">Home</a>
+            <a href="/menu">Menu</a>
+        </nav>
+    </header><br>
 
+      <!-- Item Image -->
+    <div>
+         <img src="<%= foundMenu.image %> " alt="Menu picture">  
+    </div><br>
     <!-- Edit Button -->
-    <a href="/menu/<%= foundMenu._id %>/edit ">edit</a>
-    <p>
-        Name: <%= foundMenu.name %>
-    </p>
-    
-    <!-- Item Image -->
-    <img src="<%= foundMenu.image %> " alt="Menu picture">
+    <div>
+        <a href="/menu/<%= foundMenu._id %>/edit ">edit</a>
+    </div><br>
+
 
     <!-- Item List -->
     <!-- Example place holder -->
-    <span><a href="/items">Items</a></span>
-    <span><a href="/items">Items</a></span>
+    <div>
+        <a href="/items/item-display">Items</a>
+    </div><br>
+ 
 
     <!-- Delete Button -->
     <form action="/menu/<%= foundMenu._id %>?_method=DELETE " method="POST">
@@ -36,6 +44,14 @@
     <!-- Item Listing -->
     <section>
         <h2>Menu</h2>
+        <!-- Create New Item -->
+        <div class = "item-create/edit">
+            <a href="/items/new">Create New Item</a>
+            <!-- TODO: link to item id route -->
+            <a href="#"></a>
+        </div>
+
+        <!-- Number of Items -->
         <%= foundMenu.items.length %>
     </section>
 </body>

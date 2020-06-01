@@ -3,10 +3,11 @@ const mongoose = require("mongoose");
 
 /* Set up Schema */
 const itemSchema = new mongoose.Schema({
-    name: {type: String},
+    name: {type: String, unique:true, required:true},
     image: {type: String},
     description: {type: String},
     price: {type: Number},
+    spicy:{type: Number},
     menus:[{
         type:mongoose.Schema.Types.ObjectId,    // accept id's only
         ref: 'Menu'                             // accept id's from Menu

@@ -1,5 +1,3 @@
-/* Edited By: Isaac Shepard : May 29 */
-
 /* External Modules */
 const express = require('express');
 const router = express.Router();
@@ -12,37 +10,30 @@ const db = require('../models');
 /* Root Route: /items */
 
 /* item-display route */
-router.get("/", async function (req, res) {
-    try {
+// TODO: change render to render the menu show page by menu ID
+router.get("/", async function(req,res){
+    try{
         // run code
-        const oneItem = await db.Item.findOne({});
-        const context = {
-            item: oneItem
-        };
-        res.render("items/item-display");
-<<<<<<< HEAD
+        const allItem = await db.Item.find({});
+        const context = {items: allItem};
+        res.render("items/item-index", context);
     }catch(error){
-        console.log(error.errmsg);
+        console.log(error);
         res.send({message: "Internal Server Error"});
-=======
-    } catch (error) {
-        console.log("error");
-        res.send({
-            message: "Internal Server Error"
-        });
->>>>>>> submaster
     }
 });
+
 /* new route */
 router.get("/new", async function(req,res){
     try{
         //run code
         res.render("items/item-new");
     }catch(error){
-        console.log(error.errmsg);
+        console.log(error);
         res.send({message: "Interal Server Error"});
     }
 });
+
 /* create route */
 router.post("/", async function(req, res){
     try {
@@ -50,13 +41,49 @@ router.post("/", async function(req, res){
         const createItem = await db.Item.create(req.body);
         res.redirect("/items");
     } catch (error) {
-        console.log(error.errmsg);
+        console.log(error);
         res.send({message: "Interal Server Error"});
     }
 });
+
+/* show route*/
+router.get("/:id", async function(req,res){
+    try{
+        // run code
+        const foundItem = await db.Item.findById(req.params.id);
+        const context = {item: foundItem};
+        res.render("items/item-display");
+    }catch(error){
+        console.log(error);
+        res.send({message: "Internal Server Error"});
+    }
+});
+
 /* edit route */
+router.get("/:id/edit", async function(req,res){
+    try {
+        //run code
+        const foundItem = await db.Item.findById(req.params.id);
+        const context = {
+            item: foundItem
+        }
+        res.render("items/item-edit", context);
+    } catch (error) {
+        console.log(error);
+        res.send({message: "Internal Server Error"});
+    }
+});
 
 /* update route */
+router.put("/:id", async function(req,res){
+    try {
+        //run code
+
+    } catch (error) {
+        console.log(error);
+        res.send({message: "Internal Server Error"});        
+    }
+});
 
 /* delete route */
 
