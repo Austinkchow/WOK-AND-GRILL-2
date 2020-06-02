@@ -11,11 +11,13 @@
   <!-- Header Section -->
   <header>
     <!-- Title -->
-    <h1><%= foundMenu.name %> Index Page</h1>
+    <h1><%= foundMenu.name %></h1>
     <!-- Navagation Bar -->
     <nav>
-      <a href="/">Home</a>
-      <a href="/menu">Menu</a>
+      <ul>
+        <li><a href="/menu">Menu</a></li>
+        <li><a href="/items/new">Create New Item </a></li>
+      </ul>
     </nav>
   </header>
   <br />
@@ -26,10 +28,9 @@
   </div>
   <br />
   <!-- Edit Button -->
-  <div>
-    <a href="/menu/<%= foundMenu._id %>/edit ">edit</a>
-  </div>
-  <br />
+  <form action="/menu/<%= foundMenu._id %>/edit " method="GET">
+    <input type="submit" value="Edit" />
+  </form>
 
   <!-- Delete Button -->
   <form action="/menu/<%= foundMenu._id %>?_method=DELETE " method="POST">
@@ -38,12 +39,6 @@
 
   <!-- Item Listing -->
   <section>
-    <h2>Menu</h2>
-    <!-- Create New Item -->
-    <div class="item-create/edit">
-      <a href="/items/new">Create New Item</a>
-    </div>
-
     <!-- Number of Items -->
     <h2>Items</h2>
     <p>Number of Items: <%= foundMenu.items.length  %> </p>
