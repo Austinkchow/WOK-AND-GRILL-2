@@ -1,27 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Item Index</title>
 </head>
+
 <body>
     <!-- Header Section -->
     <header>
         <!-- Title -->
         <h1>Item Index Page</h1>
-        <!-- Navagation Bar -->
-        <nav>
-            <a href="/">Home</a>
-            <a href="/menu">Menu</a>
-        </nav>
+        <%- include ('../partials/nav.ejs') %>
+
     </header>
     <!-- List of All Items -->
     <main>
         <h3>Items List</h3>
 
         <!-- Create New Item -->
-        <div class = "item-create/edit">
+        <div class="item-create/edit">
             <a href="/items/new">Create New Item</a>
             <!-- TODO: link to item id route -->
             <a href="#"></a>
@@ -31,14 +30,13 @@
         <ul class="item-list">
             <!-- Fill out the list of items -->
             <% items.forEach( element => {%>
-                <li>
-                    <a href="/items/<%= element._id %> "><%= element.name %></a>
-                    <a href="/items/<%= element._id %>/edit">Edit</a>
-                    <!-- delete -->
-                    <form action="/items/<%= element._id %>?_method=DELETE" method="POST"><input type="submit" value="Delete"></form>
-                </li>
+            <li>
+                <a href="/items/<%= element._id %> "><%= element.name %></a>
+                <a href="/items/<%= element._id %>/edit">Edit</a>
+            </li>
             <%}) %>
         </ul>
     </main>
 </body>
+
 </html>

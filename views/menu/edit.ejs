@@ -9,11 +9,8 @@
 
 <body>
     <h1>Menu Category Edit Page</h1>
-    <nav>
-        <ul>
-            <li><a href="/menu">Menu</a></li>
-        </ul>
-    </nav>
+    <%- include ('../partials/nav.ejs') %>
+
     <form action="/menu/<%= editedMenu._id %>?_method=PUT " method="POST">
         <p>Name: <input type="text" name="name" value=<%= editedMenu.name %>></p>
         <p>Image:<input type="text" name="image" value=<%= editedMenu.image %>></p>
