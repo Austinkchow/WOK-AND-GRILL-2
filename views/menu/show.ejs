@@ -1,49 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <!-- Header Section -->
     <header>
-        <!-- Title -->
-        <h1><%= foundMenu.name %> Index Page</h1>
-        <!-- Navagation Bar -->
-        <nav>
-            <a href="/">Home</a>
-            <a href="/menu">Menu</a>
-        </nav>
-    </header><br>
+      <!-- Title -->
+      <h1><%= foundMenu.name %> Index Page</h1>
+      <!-- Navagation Bar -->
+      <nav>
+        <a href="/">Home</a>
+        <a href="/menu">Menu</a>
+      </nav>
+    </header>
+    <br />
 
     <!-- Item Image -->
     <div>
-        <img src="<%= foundMenu.image %> " alt="Menu picture">
-    </div><br>
+      <img src="<%= foundMenu.image %> " alt="Menu picture" />
+    </div>
+    <br />
     <!-- Edit Button -->
     <div>
-        <a href="/menu/<%= foundMenu._id %>/edit ">edit</a>
-    </div><br>
+      <a href="/menu/<%= foundMenu._id %>/edit ">edit</a>
+    </div>
+    <br />
 
     <!-- Delete Button -->
     <form action="/menu/<%= foundMenu._id %>?_method=DELETE " method="POST">
-        <input type="submit" value="Delete">
+      <input type="submit" value="Delete" />
     </form>
 
     <!-- Item Listing -->
     <section>
-        <h2>Menu</h2>
-        <!-- Create New Item -->
-        <div class="item-create/edit">
-            <a href="/items/new">Create New Item</a>
-        </div>
+      <h2>Menu</h2>
+      <!-- Create New Item -->
+      <div class="item-create/edit">
+        <a href="/items/new">Create New Item</a>
+      </div>
 
-        <!-- Number of Items -->
-        <%= foundMenu.items %>
+      <!-- Number of Items -->
+      <%= foundMenu.items %>
     </section>
-</body>
-
+  </body>
 </html>

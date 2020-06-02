@@ -22,7 +22,7 @@ app.use(
   })
 );
 app.use(methodOverride('_method'));
-
+app.use(express.static(__dirname + '/public'));
 /* Routes */
 
 //Root Route

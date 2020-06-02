@@ -24,5 +24,5 @@ mongoose.connection.on('disconnected', function () {
 //export models
 module.exports = {
   Menu: require('./Menu'),
-  Item: require('./Item')
+  Item: require('./Item'),
 };
