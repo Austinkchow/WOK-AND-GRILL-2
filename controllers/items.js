@@ -120,7 +120,7 @@ router.delete("/:id", async function (req, res) {
         const foundMenu = await db.Menu.findById(deletedItem.menus);
         foundMenu.items.remove(deletedItem);
         foundMenu.save();
-        res.redirect("/items");
+        res.redirect(`/menu/${foundMenu._id}`);
     } catch (error) {
         console.log(error);
         res.send({
