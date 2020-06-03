@@ -30,12 +30,19 @@ app.use(
     store: new MongoStore({
       url: 'mongodb//localhost:27017/workAndGrill',
     }),
+    secret: 'wok and grill',
+    resave: false,
+    saveUninitialized: false,
+    cookie: {
+      maxAge: 1000 * 60 * 60 * 24 * 7,
+    },
   })
 );
 /* Routes */
 
 //Root Route
 app.get('/', (req, res) => {
+  console.log(req.session);
   res.render('index');
 });
 
