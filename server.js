@@ -3,7 +3,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const methodOverride = require('method-override');
 const session = require('express-session');
-const MongoStore = require('connect-mongo')(session);
+const MongoStore = require("connect-mongo")(session);
 
 /* Internal Modules */
 const controllers = require('./controllers');
@@ -28,7 +28,7 @@ app.use(express.static(__dirname + '/public'));
 app.use(
   session({
     store: new MongoStore({
-      url: 'mongodb//localhost:27017/workAndGrill',
+      url: 'mongodb://localhost:27017/wokAndGrill',
     }),
     secret: 'wok and grill',
     resave: false,
@@ -38,13 +38,16 @@ app.use(
     },
   })
 );
+
 /* Routes */
 
 //Root Route
 app.get('/', (req, res) => {
-  console.log(req.session);
   res.render('index');
 });
+
+//auth routes
+app.use('/auth', controllers.auth);
 
 //Menu Route
 app.use('/menu', controllers.menu);
