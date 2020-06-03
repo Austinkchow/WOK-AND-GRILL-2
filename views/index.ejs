@@ -19,54 +19,61 @@
     <header> <%- include('partials/nav') %></header>
 
     <!-- Advertizing Slides -->
-    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-        <ol class="carousel-indicators">
-          <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-          <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-          <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-        </ol>
-        <div class="carousel-inner" role="listbox">
-          <!-- Slide One - Set the background image for this slide in the line below -->
-          <div class="carousel-item active" style="background-image: url('https://i.ndtvimg.com/i/2016-06/chinese-625_625x350_81466064119.jpg')">
-            <div class="carousel-caption d-none d-md-block">
-              <h3>First Slide</h3>
-              <p>This is a description for the first slide.</p>
+    <section>
+        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+
+            <ol class="carousel-indicators">
+              <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+              <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+              <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+            </ol>
+    
+            <div class="carousel-inner" role="listbox">
+              <!-- Slide One -->
+              <div class="carousel-item active" style="background-image: url('https://i.ndtvimg.com/i/2016-06/chinese-625_625x350_81466064119.jpg')">
+                <div class="carousel-caption d-none d-md-block">
+                  <h3>First Slide</h3>
+                  <p>This is a description for the first slide.</p>
+                </div>
+              </div>
+    
+              <!-- Slide Two  -->
+              <div class="carousel-item" style="background-image: url('https://tasteasianfood.com/wp-content/uploads/2019/07/Mooncake-thumbnail-250x180.jpeg')">
+                <div class="carousel-caption d-none d-md-block">
+                  <h3>Second Slide</h3>
+                  <p>This is a description for the second slide.</p>
+                </div>
+              </div>
+    
+              <!-- Slide Three -->
+              <div class="carousel-item" style="background-image: url('http://placehold.it/1900x1080')">
+                <div class="carousel-caption d-none d-md-block">
+                  <h3>Third Slide</h3>
+                  <p>This is a description for the third slide.</p>
+                </div>
+              </div>
             </div>
-          </div>
-          <!-- Slide Two - Set the background image for this slide in the line below -->
-          <div class="carousel-item" style="background-image: url('https://tasteasianfood.com/wp-content/uploads/2019/07/Mooncake-thumbnail-250x180.jpeg')">
-            <div class="carousel-caption d-none d-md-block">
-              <h3>Second Slide</h3>
-              <p>This is a description for the second slide.</p>
-            </div>
-          </div>
-          <!-- Slide Three - Set the background image for this slide in the line below -->
-          <div class="carousel-item" style="background-image: url('http://placehold.it/1900x1080')">
-            <div class="carousel-caption d-none d-md-block">
-              <h3>Third Slide</h3>
-              <p>This is a description for the third slide.</p>
-            </div>
-          </div>
+    
+            <!-- Previous Slide -->
+            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+    
+            <!-- Next Slide -->
+            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+            </a>
         </div>
-        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="sr-only">Next</span>
-        </a>
-      </div>
+    </section>
+    
+
     <!-- Main Section -->
     <main>
         <!-- Chinese Food Proverb -->
         <img class="proverb" src="images/chinese-proverb.png" alt="proverb" height="200">
     </main>
-=======
-<body>
-    <h1>Work & Grill</h1>
-    <%- include ('partials/nav.ejs') %>
-</body>
->>>>>>> submaster
+
 
 </html>
