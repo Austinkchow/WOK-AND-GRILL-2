@@ -2,6 +2,8 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const methodOverride = require('method-override');
+const session = require('express-session');
+const MongoStore = require('connect-mongo')(session);
 
 /* Internal Modules */
 const controllers = require('./controllers');
@@ -23,6 +25,13 @@ app.use(
 );
 app.use(methodOverride('_method'));
 app.use(express.static(__dirname + '/public'));
+app.use(
+  session({
+    store: new MongoStore({
+      url: 'mongodb//localhost:27017/workAndGrill',
+    }),
+  })
+);
 /* Routes */
 
 //Root Route
