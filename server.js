@@ -39,12 +39,18 @@ app.use(
   })
 );
 
+const authRequired = function (req, res, next) {
+  if (!req.session.currentUser) {
+    return res.redirect('auth/login');
+  }
+  next();
+};
 /* Routes */
 
 //Root Route
 app.get('/', (req, res) => {
   res.render('index', {
-    user: req.session.currentUser
+    user: req.session.currentUser,
   });
 });
 
@@ -52,10 +58,10 @@ app.get('/', (req, res) => {
 app.use('/auth', controllers.auth);
 
 //Menu Route
-app.use('/menu', controllers.menu);
+app.use('/menu', authRequired, controllers.menu);
 
 //Item Route
-app.use('/items', controllers.items);
+app.use('/items', authRequired, controllers.items);
 
 //Binding Server to Port
 app.listen(PORT, () => {
