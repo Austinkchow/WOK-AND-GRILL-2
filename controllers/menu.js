@@ -82,11 +82,21 @@ router.put('/:index', (req, res) => {
 
 //delete route
 router.delete('/:index', (req, res) => {
-  db.Menu.findByIdAndDelete(req.params.index, (error, deleteMenu) => {
+  db.Menu.findByIdAndDelete(req.params.index, (error, deletedMenu) => {
     if (error) {
       console.log(error);
     } else {
-      res.redirect('/menu');
+      db.Item.remove({
+        _id: {
+          $in: deletedMenu.items
+        }
+      }, function (error, removedItems) {
+        if (error) {
+          console.log(error);
+        } else {
+          res.redirect('/menu');
+        }
+      });
     }
   });
 });

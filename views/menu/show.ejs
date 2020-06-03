@@ -1,50 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-  </head>
 
-  <body>
-    <!-- Header Section -->
-    <header>
-      <!-- Title -->
-      <h1><%= foundMenu.name %> Index Page</h1>
-      <!-- Navagation Bar -->
-      <nav>
-        <a href="/">Home</a>
-        <a href="/menu">Menu</a>
-      </nav>
-    </header>
-    <br />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+</head>
 
-    <!-- Item Image -->
-    <div>
-      <img src="<%= foundMenu.image %> " alt="Menu picture" />
-    </div>
-    <br />
-    <!-- Edit Button -->
-    <div>
-      <a href="/menu/<%= foundMenu._id %>/edit ">edit</a>
-    </div>
-    <br />
+<body>
+  <!-- Header Section -->
+  <header>
+    <!-- Title -->
+    <h1><%= foundMenu.name %></h1>
+    <%- include ('../partials/nav.ejs') %>
 
-    <!-- Delete Button -->
-    <form action="/menu/<%= foundMenu._id %>?_method=DELETE " method="POST">
-      <input type="submit" value="Delete" />
-    </form>
+  </header>
+  <br />
 
-    <!-- Item Listing -->
-    <section>
-      <h2>Menu</h2>
-      <!-- Create New Item -->
-      <div class="item-create/edit">
-        <a href="/items/new">Create New Item</a>
-      </div>
+  <!-- Item Image -->
+  <div>
+    <img src="<%= foundMenu.image %> " alt="Menu picture" />
+  </div>
+  <br />
+  <!-- Edit Button -->
+  <form action="/menu/<%= foundMenu._id %>/edit " method="GET">
+    <input type="submit" value="Edit" />
+  </form>
 
-      <!-- Number of Items -->
-      <%= foundMenu.items %>
-    </section>
-  </body>
+  <!-- Delete Button -->
+  <form action="/menu/<%= foundMenu._id %>?_method=DELETE " method="POST">
+    <input type="submit" value="Delete" />
+  </form>
+
+  <!-- Item Listing -->
+  <section>
+    <!-- Number of Items -->
+    <h2>Items</h2>
+    <p>Number of Items: <%= foundMenu.items.length  %> </p>
+    <% foundMenu.items.forEach(item => { %>
+    <a href="/items/<%= item._id  %> "><%= item.name %> </a>
+    <% }) %>
+  </section>
+</body>
+
 </html>

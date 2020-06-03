@@ -9,8 +9,8 @@
 
 <body>
     <h1>Create Menu Category</h1>
-    <a href="/">Main page</a>
-    <a href="/menu">Menu</a>
+    <%- include ('../partials/nav.ejs') %>
+
     <form action="/menu" method="POST">
         <p>Name: <input type="text" name="name"></p>
         <p>Image:<input type="text" name="image"></p>
