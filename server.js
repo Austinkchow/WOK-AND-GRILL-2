@@ -43,7 +43,9 @@ app.use(
 
 //Root Route
 app.get('/', (req, res) => {
-  res.render('index');
+  res.render('index', {
+    user: req.session.currentUser
+  });
 });
 
 //auth routes
