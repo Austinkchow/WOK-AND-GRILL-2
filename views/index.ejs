@@ -2,14 +2,18 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
 </head>
 
 <body>
     <h1>Work & Grill</h1>
-    <%- include ('partials/nav.ejs') %>
+    <%- include ('partials/nav.ejs') %> <% if(user){ %>
+    <form action="/auth/logout?_method=DELETE" method="POST">
+        <input type="submit" value="Logout" />
+        <% } %>
+    </form>
 </body>
 
 </html>
