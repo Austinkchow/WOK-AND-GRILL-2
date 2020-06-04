@@ -8,25 +8,21 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <!-- Internal CSS -->
     <link rel="stylesheet" href="/style/main.css" type="text/css">
-    <link href="/style/carosel.css" rel="stylesheet">
-    <title>Wok & Grill Menu Page</title>
+    <link rel="stylesheet" href="/style/carosel.css" type="text/css">
+    <title>Wok & Grill Homepage</title>
 </head>
-
-<body>
+<body> 
     <!-- BootStrap Script Files -->
-    <%- include('../partials/bootstrapScripts') %>
+    <%- include('partials/bootstrapScripts') %>
 
     <!-- Header Section -->
-    <header> <%- include('../partials/nav') %></header>
-
-    <div class="spacer-top"></div>
+    <header> <%- include('partials/nav') %></header>
     
-    <h1>Menu Category Edit Page</h1>
-
-    <form action="/menu/<%= editedMenu._id %>?_method=PUT " method="POST">
-        <p>Name: <input type="text" name="name" value=<%= editedMenu.name %>></p>
-        <p>Image:<input type="text" name="image" value=<%= editedMenu.image %>></p>
-        <input type="submit" value="Update">
+    <h1>Login</h1>
+    <form action="/auth/login" method="POST">
+        <input type="email" name="email" placeholder="Email" required />
+        <input type="password" name="password" placeholder="password" required />
+        <input type="submit" value="Login" />
     </form>
 </body>
 

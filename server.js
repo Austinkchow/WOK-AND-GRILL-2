@@ -41,11 +41,19 @@ app.use(
   })
 );
 
+const authRequired = function (req, res, next) {
+  if (!req.session.currentUser) {
+    return res.redirect('auth/login');
+  }
+  next();
+};
 /* Routes */
 
 //Root Route
 app.get('/', (req, res) => {
-  res.render('index');
+  res.render('index', {
+    user: req.session.currentUser,
+  });
 });
 
 //auth routes

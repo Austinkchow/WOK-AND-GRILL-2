@@ -11,3 +11,10 @@ body{
    
 }
 
+.spacer-top{
+    margin-top:200px;
+}
+
+.spacer-top-reverse{
+    margin-top:-100px;
+}
