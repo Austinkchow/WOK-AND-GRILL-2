@@ -79,6 +79,9 @@ app.use('/menu', controllers.menu);
 //Item Route
 app.use('/items', controllers.items);
 
+//Item Route
+app.use('/comments', controllers.comments);
+
 //Binding Server to Port
 app.listen(PORT, () => {
   console.log(`Listening http://localhost:${PORT}`);
