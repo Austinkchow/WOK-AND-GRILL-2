@@ -19,26 +19,11 @@
     <%- include('partials/bootstrapScripts') %>
 
     <!-- Header Section -->
-
-    <!-- Header Section -->
-    <header>
-        <%- include('partials/nav') %>
-        <div class="spacer-top"></div>
-        <a href="/auth/login">Login</a>
-        <a href="/auth/register">Register</a>
-        <% if(user){ %>
-        <p>Welcome! <%= user.name %></p>
-        <form action="/auth/logout?_method=DELETE" method="POST">
-            <input type="submit" value="Logout" />
-        </form>
-        <% } else { %>
-        <a href="/auth/login">Login</a>
-        <a href="/auth/register">Register</a>
-        <% } %>
-    </header>
+    <!-- Navagation -->
+    <header><%- include('partials/nav') %></header>
 
     <!-- Advertizing Slides -->
-    <section class="spacer-top-reverse">
+    <section class="spacer-top-reverse border-black ads">
         <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
             <ol class="carousel-indicators">
                 <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -93,18 +78,19 @@
     </section>
 
     <!-- Main Section -->
-    <main>
+    <main class="border-black">
         <!-- Chinese Food Proverb -->
-        <img class="proverb" src="images/chinese-proverb.png" alt="proverb" height="200" />
-    </main>
+        <img class="proverb" src="images/chinese-proverb.png" alt="proverb" height="200">
 
-    <footer class="py-5 bg-dark">
-        <div class="container">
-            <p class="m-0 text-center text-white">
-                Copyright &copy; Wok & Grill 2020
-            </p>
-        </div>
-    </footer>
+        <!-- Content -->
+
+        <footer class="py-5 bg-dark">
+            <div class="container">
+                <p class="m-0 text-center text-white">
+                    Copyright &copy; Wok & Grill 2020
+                </p>
+            </div>
+        </footer>
 </body>
 
 </html>
