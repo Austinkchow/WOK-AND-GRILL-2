@@ -1,19 +1,141 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- Internal CSS -->
+    <link rel="stylesheet" href="/style/main.css" type="text/css">
+    <link rel="stylesheet" href="/style/carosel.css" type="text/css">
+    <title>Wok & Grill Homepage</title>
 </head>
+<body> 
+    <!-- BootStrap Script Files -->
+    <%- include('partials/bootstrapScripts') %>
 
-<body>
-    <h1>Work & Grill</h1>
-    <%- include ('partials/nav.ejs') %> <% if(user){ %>
-    <form action="/auth/logout?_method=DELETE" method="POST">
-        <input type="submit" value="Logout" />
-        <% } %>
-    </form>
+    <!-- Header Section -->
+    <!-- Navagation -->
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+
+        <!-- Dragon -->
+        <img src="/images/dragon-proverb.png" alt="Dragon" height="200">
+
+        <!-- Logo -->
+        <a href="/"><img src="/images/wok-logo.png" height="200" alt="Logo"></a>
+
+        <!-- Button Nav for smaller browser screen -->
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Nav Links -->
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <!-- Home -->
+                <li class="nav-item">
+                    <a class="nav-link" href="/">Home</a>
+                </li>
+
+                <!-- Menus -->
+                <li class="nav-item">
+                    <a class="nav-link" href="/menu">Menus</a>
+                </li>
+
+                <!-- Locations -->
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Locations</a>
+                </li>
+
+                <!-- About Us -->
+                <li class="nav-item">
+                    <a class="nav-link" href="#">About Us</a>
+                </li>
+
+                <!-- Login -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Login
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                      <a class="dropdown-item" href="/auth/login">Login</a>
+                      <a class="dropdown-item" href="/auth/register">Register</a>
+                    </div>
+                  </li>
+
+        </div>
+      </div>
+
+</nav>
+<p class="spacer-top"></p>
+
+    <!-- Advertizing Slides -->
+    <section class="spacer-top-reverse">
+        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+
+            <ol class="carousel-indicators">
+              <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+              <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+              <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+            </ol>
+    
+            <div class="carousel-inner" role="listbox">
+              <!-- Slide One -->
+              <div class="carousel-item active" style="background-image: url('https://i.ndtvimg.com/i/2016-06/chinese-625_625x350_81466064119.jpg')">
+                <div class="carousel-caption d-none d-md-block">
+                  <h3>First Slide</h3>
+                  <p>This is a description for the first slide.</p>
+                </div>
+              </div>
+    
+              <!-- Slide Two  -->
+              <div class="carousel-item" style="background-image: url('https://tasteasianfood.com/wp-content/uploads/2019/07/Mooncake-thumbnail-250x180.jpeg')">
+                <div class="carousel-caption d-none d-md-block">
+                  <h3>Second Slide</h3>
+                  <p>This is a description for the second slide.</p>
+                </div>
+              </div>
+    
+              <!-- Slide Three -->
+              <div class="carousel-item" style="background-image: url('https://www.teasoul.net/modules/prestablog/views/img/grid-for-1-7/up-img/115.jpg')">
+                <div class="carousel-caption d-none d-md-block">
+                  <h3>Third Slide</h3>
+                  <p>This is a description for the third slide.</p>
+                </div>
+              </div>
+            </div>
+    
+            <!-- Previous Slide -->
+            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+    
+            <!-- Next Slide -->
+            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+            </a>
+        </div>
+    </section>
+    
+
+    <!-- Main Section -->
+    <main>
+        <!-- Chinese Food Proverb -->
+        <img class="proverb" src="images/chinese-proverb.png" alt="proverb" height="200">
+
+    </main>
+
+    <footer class="py-5 bg-dark">
+        <div class="container">
+          <p class="m-0 text-center text-white">Copyright &copy; Wok & Grill 2020</p>
+        </div>
+    
+      </footer>
+  
 </body>
 
 </html>

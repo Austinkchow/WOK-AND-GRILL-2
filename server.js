@@ -24,6 +24,8 @@ app.use(
   })
 );
 app.use(methodOverride('_method'));
+
+/* Ability to use the public foleder */
 app.use(express.static(__dirname + '/public'));
 app.use(
   session({

@@ -1,28 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- Internal CSS -->
+    <link rel="stylesheet" href="/style/main.css" type="text/css">
+    <link href="/style/carosel.css" rel="stylesheet">
+    <title>Wok & Grill Menu Page</title>
 </head>
 
 <body>
-    <!-- Header Section -->
-    <header>
-        <!-- Title -->
-        <h1>Menu</h1>
-        <!-- Navagation Bar -->
-        <%- include ('../partials/nav.ejs') %>
-    </header>
+    <!-- BootStrap Script Files -->
+    <%- include('../partials/bootstrapScripts') %>
 
-    <ul>
-        <% allMenu.forEach(element => { %>
-        <li>
-            <a href="/menu/<%= element._id %> "><%= element.name %></a>
-        </li>
-        <% }) %>
-    </ul>
+    <!-- Header Section -->
+    <header> <%- include('../partials/nav') %></header>
+
+   <!-- Page Content -->
+   <div class="container">
+
+        <!-- Page Heading/Breadcrumbs -->
+        <h1 class="mt-4 mb-3">Menus
+        <small>Categories</small>
+        </h1>
+
+        
+
+        <div class="row">
+          <% allMenu.forEach(element => { %>
+            <div class="col-lg-4 col-sm-6 portfolio-item">
+                <div class="card h-100">
+                    <a href="#"><img class="card-img-top" src="/images/BBQ_Chicken.jpg" alt=""></a>
+                    <div class="card-body">
+                        <h4 class="card-title">
+                        <a href="/menu/<%= element._id %> "><%= element.name %></a>
+                        </h4>
+                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur eum quasi sapiente nesciunt? Voluptatibus sit, repellat sequi itaque deserunt, dolores in, nesciunt, illum tempora ex quae? Nihil, dolorem!</p>
+                    </div>
+                </div>
+            </div>
+            <% }) %>
+          </div>     
+  <!-- /.container -->
+  </div>
+
+
+
+  <!-- Footer -->
+  <footer class="py-5 bg-dark">
+    <div class="container">
+      <p class="m-0 text-center text-white">Copyright &copy; Wok & Grill 2020</p>
+    </div>
+  </footer>
 </body>
 
 </html>
