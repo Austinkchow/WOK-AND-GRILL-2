@@ -3,13 +3,21 @@ body{
     background-color: burlywood;
     /* cursor: url('http://www.rw-designer.com/cursor-extern.php?id=63042'), default; */
     cursor: url('/images/Chopsticks.png'), default;
+  
 
 }
 
+/* Header & Nav */
 .nav-link{
     font-size: 20px;
    
 }
+
+.web-banner{
+    text-align: center;
+}
+
+
 
 /* Spacing */
 .spacer-top{
@@ -48,10 +56,3 @@ body{
 .border-black{
     border: 2px solid black;
 }
-
-
-
-
-/* .ads{
-    
-} */
