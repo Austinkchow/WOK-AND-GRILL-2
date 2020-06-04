@@ -19,7 +19,7 @@
   <%- include('../partials/bootstrapScripts') %>
 
   <!-- Header Section -->
-  <header><%- include ('partials/nav') %></header>
+  <header><%- include ('../partials/nav') %></header>
 
   <!-- Page Content -->
   <div class="container">
@@ -30,7 +30,7 @@
       <div class="col-lg-4 col-sm-6 portfolio-item">
         <a href="/menu/<%= element._id %> ">
           <div class="card h-100">
-            <img class="card-img-top" src="/images/BBQ_Chicken.jpg" alt="">
+            <img class="card-img-top" src="element.image" alt="">
             <div class="card-body">
               <h4 class="card-title">
                 <%= element.name %>

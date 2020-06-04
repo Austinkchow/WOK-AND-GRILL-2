@@ -26,5 +26,6 @@ module.exports = {
   Menu: require('./Menu'),
   Item: require('./Item'),
   User: require('./User'),
-  Comment: require('./Comment')
+  Comment: require('./Comment'),
+  Hour: require('./Hour')
 };

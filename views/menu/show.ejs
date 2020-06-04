@@ -16,11 +16,11 @@
 
 <body>
   <!-- BootStrap Script Files -->
-  <header><%- include('partials/nav' %></header>
+  <%- include('../partials/bootstrapScripts') %>
 
   <!-- Header Section -->
   <header>
-    <header><%- include('partials/nav',{user: user}) %></header>
+    <header><%- include('../partials/nav') %></header>
     <div class="spacer-top"></div>
     <!-- Title -->
     <h1><%= foundMenu.name %></h1>
