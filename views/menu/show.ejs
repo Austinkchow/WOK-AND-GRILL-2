@@ -24,14 +24,10 @@
     <div class="spacer-top"></div>
     <!-- Title -->
     <h1><%= foundMenu.name %></h1>
+    <h4><%= foundMenu.items.length %> items</h4>
   </header>
 
   <br />
-
-  <!-- Item Image -->
-  <div>
-    <img src="<%= foundMenu.image %> " alt="Menu picture" />
-  </div>
   <br />
   <!-- Edit Button -->
   <!--   <form action="/menu/<%= foundMenu._id %>/edit " method="GET">
@@ -42,16 +38,31 @@
   <!--   <form action="/menu/<%= foundMenu._id %>?_method=DELETE " method="POST">
     <input type="submit" value="Delete" />
   </form> -->
+  <!-- Page Content -->
+  <div class="container">
+    <!-- Page Heading/Breadcrumbs -->
+    <div class="row">
+      <% foundMenu.items.forEach(item => { %>
+      <div class="col-lg-4 col-sm-6 portfolio-item">
+        <a href="/items/<%= item._id %> ">
+          <div class="card h-100">
+            <img class="card-img-top" src="/images/BBQ_Chicken.jpg" alt="">
+            <div class="card-body">
+              <h4 class="card-title">
+                <%= item.name %>
+              </h4>
+              <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur eum
+                quasi sapiente nesciunt? Voluptatibus sit, repellat sequi itaque deserunt, dolores in, nesciunt, illum
+                tempora ex quae? Nihil, dolorem!</p>
+            </div>
+          </div>
+        </a>
+      </div>
+      <% }) %>
+    </div>
+    <!-- /.container -->
+  </div>
 
-  <!-- Item Listing -->
-  <section>
-    <!-- Number of Items -->
-    <h2>Items</h2>
-    <p>Number of Items: <%= foundMenu.items.length  %> </p>
-    <% foundMenu.items.forEach(item => { %>
-    <a href="/items/<%= item._id  %> "><%= item.name %> </a>
-    <% }) %>
-  </section>
 </body>
 
 </html>

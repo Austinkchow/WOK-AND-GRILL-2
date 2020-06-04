@@ -42,12 +42,11 @@ app.use(
 );
 
 const authRequired = function (req, res, next) {
-  if (req.session.currentUser.username === "admin") {
+  if (req.session.currentUser.username === 'admin') {
     return res.redirect('/admin');
   }
   next();
 };
-
 
 /* Routes */
 
