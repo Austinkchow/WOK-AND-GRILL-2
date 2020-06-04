@@ -79,7 +79,7 @@ app.use('/menu', controllers.menu);
 //Item Route
 app.use('/items', controllers.items);
 
-//Item Route
+//comments Route
 app.use('/comments', controllers.comments);
 
 //Binding Server to Port
