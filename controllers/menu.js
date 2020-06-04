@@ -29,7 +29,7 @@ router.post('/', (req, res) => {
     if (error) {
       console.log(error);
     } else {
-      res.redirect('/menu');
+      res.redirect('/admin');
     }
   });
 });
@@ -74,7 +74,7 @@ router.put('/:index', (req, res) => {
       if (error) {
         console.log(error);
       } else {
-        res.redirect(`/menu/${updatedMenu._id}`);
+        res.redirect(`/admin`);
       }
     }
   );
@@ -94,7 +94,7 @@ router.delete('/:index', (req, res) => {
         if (error) {
           console.log(error);
         } else {
-          res.redirect('/menu');
+          res.redirect('/admin');
         }
       });
     }

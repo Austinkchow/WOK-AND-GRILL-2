@@ -11,26 +11,17 @@ body{
    
 }
 
+/* Spacing */
 .spacer-top{
     margin-top:115px;
 }
 
-/* .spacer-top-reverse{
-    margin-top:-50px;
-} */
-
-.proverb{
-    margin-top:-60px;
-    position: absolute;
-    z-index:2;
+.spacer-top-reverse{
+    margin-top:-115px;
 }
 
 .margin-top-10px{
     margin-top:10px;
-}
-
-.border-black{
-    border: 2px solid black;
 }
 
 .static{
@@ -40,8 +31,27 @@ body{
     
 }
 
+/* Visuals */
+.proverb{
+    margin-top:-60px;
+    position: absolute;
+    z-index:2;
+}
+
 .waiter{
     position: absolute;
     margin-top:-50px;
     padding:0;
 }
+
+
+.border-black{
+    border: 2px solid black;
+}
+
+
+
+
+/* .ads{
+    
+} */

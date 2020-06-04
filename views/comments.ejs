@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- Internal CSS -->
+    <link rel="stylesheet" href="/style/main.css" type="text/css">
+    <link href="/style/carosel.css" rel="stylesheet">
+    <title>Wok & Grill Menu Create Page</title>
+</head>
+
+<body>
+    <!-- BootStrap Script Files -->
+    <%- include('partials/bootstrapScripts') %>
+
+    <!-- Header Section -->
+    <header><%- include('partials/nav') %></header>
+
+    <br />
+    <h1>Comment wall</h1>
+
+    <h4>How do you fee?</h4>
+    <form action="/comments" method="POST">
+        <textarea name="text" rows="4" cols="50"></textarea>
+        <p>Name: <input type="text" name="name"></p>
+        <input type="submit" value="Create">
+    </form>
+
+    <div class="container">
+        <div class="row">
+            <% allComments.forEach(comment => { %>
+            <div class="col-lg-4 col-sm-6 portfolio-item">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <p class="card-text"><%= comment.text %></p>
+                        <p><%= comment.name %></p>
+                        <p><%= comment.date.getMonth() %>-<%= comment.date.getDate() %>-<%= comment.date.getFullYear() %>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <% }) %>
+        </div>
+        <!-- /.container -->
+    </div>
+</body>
+</body>
+
+</html>

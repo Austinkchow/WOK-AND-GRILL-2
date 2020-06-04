@@ -42,12 +42,11 @@ app.use(
 );
 
 const authRequired = function (req, res, next) {
-  if (req.session.currentUser.username === "admin") {
+  if (req.session.currentUser.username === 'admin') {
     return res.redirect('/admin');
   }
   next();
 };
-
 
 /* Routes */
 
@@ -56,6 +55,16 @@ app.get('/', (req, res) => {
   res.render('index', {
     user: req.session.currentUser,
   });
+});
+
+//location Route
+app.get('/location', (req, res) => {
+  res.render('location');
+});
+
+//About us route
+app.get('/aboutus', (req, res) => {
+  res.render('about-us');
 });
 
 //auth routes
@@ -69,6 +78,9 @@ app.use('/menu', controllers.menu);
 
 //Item Route
 app.use('/items', controllers.items);
+
+//Item Route
+app.use('/comments', controllers.comments);
 
 //Binding Server to Port
 app.listen(PORT, () => {

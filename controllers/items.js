@@ -52,7 +52,7 @@ router.post("/", async function (req, res) {
         const foundMenu = await db.Menu.findById(createItem.menus);
         foundMenu.items.push(createItem);
         foundMenu.save();
-        res.redirect("/items");
+        res.redirect("/admin");
     } catch (error) {
         console.log(error);
         res.send({
@@ -103,7 +103,7 @@ router.put("/:id", async function (req, res) {
         const updatedItem = await db.Item.findByIdAndUpdate(req.params.id, req.body, {
             new: true
         });
-        res.redirect('/items/' + updatedItem._id);
+        res.redirect('/admin');
     } catch (error) {
         console.log(error);
         res.send({
@@ -120,7 +120,7 @@ router.delete("/:id", async function (req, res) {
         const foundMenu = await db.Menu.findById(deletedItem.menus);
         foundMenu.items.remove(deletedItem);
         foundMenu.save();
-        res.redirect(`/menu/${foundMenu._id}`);
+        res.redirect('/admin');
     } catch (error) {
         console.log(error);
         res.send({

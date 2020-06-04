@@ -16,22 +16,19 @@
 
 <body>
     <!-- BootStrap Script Files -->
-    <%- include('../partials/bootstrapScripts') %>
+    <%- include('partials/bootstrapScripts') %>
 
     <!-- Header Section -->
-    <header> <%- include('../partials/nav') %></header>
+    <header>
+        <%- include('partials/nav') %>
+        <div class="spacer-top"></div>
 
-    <main>
-        <div class="container">
-            <h1>Create Menu Category</h1>
-            <form action="/menu" method="POST">
-                <p>Name: <input type="text" name="name"></p>
-                <p>Image:<input type="text" name="image"></p>
-                <input type="submit" value="Create">
-            </form>
-        </div>
-    </main>
+    </header>
 
+    <br />
+
+    <h1>Location</h1>
+    <p>Address: 4110 Edison Ave #108, Chino, CA 91710</p>
 </body>
 
 </html>
