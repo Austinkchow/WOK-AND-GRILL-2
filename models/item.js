@@ -14,9 +14,6 @@ const itemSchema = new mongoose.Schema({
     description: {
         type: String
     },
-    price: {
-        type: Number
-    },
     spicy: {
         type: Number
     },

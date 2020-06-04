@@ -1,58 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <!-- Internal CSS -->
+    <link rel="stylesheet" href="/style/main.css" type="text/css" />
+    <link href="/style/carosel.css" rel="stylesheet" />
+    <title>Wok & Grill Menu Show page</title>
+  </head>
 
-<head>
-  <!-- Required meta tags -->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <!-- Internal CSS -->
-  <link rel="stylesheet" href="/style/main.css" type="text/css">
-  <link href="/style/carosel.css" rel="stylesheet">
-  <title>Wok & Grill Menu Show page</title>
-</head>
+  <body>
+    <!-- BootStrap Script Files -->
+    <%- include('../partials/bootstrapScripts') %>
 
-<body>
-  <!-- BootStrap Script Files -->
-  <%- include('../partials/bootstrapScripts') %>
+    <!-- Header Section -->
+    <header>
+      <%- include('../partials/nav') %>
+    </header>
 
-  <!-- Header Section -->
-  <header>
-    <header><%- include('../partials/nav') %></header>
-    <div class="spacer-top"></div>
-    <!-- Title -->
-    <h1><%= foundMenu.name %></h1>
-    <h4><%= foundMenu.items.length %> items</h4>
-  </header>
-  <br />
-  <br />
-  <!-- Page Content -->
-  <div class="container">
-    <!-- Page Heading/Breadcrumbs -->
-    <div class="row">
-      <% foundMenu.items.forEach(item => { %>
-      <div class="col-lg-4 col-sm-6 portfolio-item">
-        <a href="/items/<%= item._id %> ">
+    <!-- Page Content -->
+    <div class="container">
+      <!-- Page Heading/Breadcrumbs -->
+
+      <!-- Title -->
+      <h1 class="mt-4 mb-3">
+        <%= foundMenu.name %>
+        <small></small>
+      </h1>
+
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+          <a href="/menu">Menu</a>
+        </li>
+
+        <li class="breadcrumb-item active"><%= foundMenu.name %></li>
+
+        <!-- Back Button -->
+        <li class="breadcrumb-item">
+          <a href="javascript:history.back()"> ... Previous Page</a>
+        </li>
+      </ol>
+
+      <!-- Items List Within the Menu -->
+      <div class="row">
+        <% foundMenu.items.forEach(item => { %>
+
+        <div class="col-lg-4 col-sm-6 portfolio-item">
           <div class="card h-100">
-            <img class="card-img-top" src="/images/BBQ_Chicken.jpg" alt="">
+            <!-- ----------------------C A R D---C O N T E N T -------------------------- -->
+            <!-- Item Image -->
+            <img
+              class="card-img-top"
+              src="<%= item.image %>"
+              alt="Item Image"
+              height="300"
+            />
+
             <div class="card-body">
-              <h4 class="card-title">
-                <%= item.name %>
-              </h4>
-              <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur eum
-                quasi sapiente nesciunt? Voluptatibus sit, repellat sequi itaque deserunt, dolores in, nesciunt, illum
-                tempora ex quae? Nihil, dolorem!</p>
+              <!-- Name -->
+              <a href="/items/<%= item._id %> ">
+                <h4 class="card-title"><%= item.name %></h4>
+              </a>
+              <!-- Description -->
+              <p class="card-text"><%= item.description %></p>
             </div>
+            <!-- ----------------------C A R D---C O N T E N T -------------------------- -->
           </div>
-        </a>
+        </div>
+
+        <% }) %>
       </div>
-      <% }) %>
+      <!-- /.container -->
     </div>
-    <!-- /.container -->
-  </div>
-
-</body>
-
+  </body>
 </html>

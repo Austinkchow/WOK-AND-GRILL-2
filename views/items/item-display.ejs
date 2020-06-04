@@ -21,26 +21,92 @@
   <!-- Header Section -->
   <header>
     <%- include('../partials/nav') %>
-    <!-- Title -->
-    <h1>Dish</h1>
-    <p><a href="/items">back</a></p>
   </header>
 
   <!-- Dish Contents-->
   <main>
-    <div class="item-container">
-      <!-- Item Name -->
-      <h3><%= item.name %></h3>
-      <!-- Item Picture -->
-      <img src="<%= item.image %>" alt="item image" />
-      <!-- Price -->
-      <p>Price: <%= item.price %></p>
-      <!-- Spiciness -->
-      <p>Spicy: <%= item.spicy %></p>
-      <!-- Description -->
-      <p><%= item.description %></p>
+    <div class="container">
+
+      <!-- Page Heading/Breadcrumbs -->
+
+      <!-- Title -->
+      <h1 class="mt-4 mb-3"><%= item.name %>
+        <small></small>
+      </h1>
+
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+          <a href="/menu">Menu</a>
+        </li>
+
+        <li class="breadcrumb-item active"><%= item.name %></li>
+
+        <!-- Back Button -->
+        <li class="breadcrumb-item">
+          <a href="javascript:history.back()"> ... Previous Page</a>
+        </li>
+      </ol>
+
+      <!-- Portfolio Item Row -->
+      <div class="row">
+
+        <div class="col-md-8">
+      
+          <img class="img-fluid" src="<%= item.image %>" alt="item image" height=500 />
+        </div>
+
+        <div class="col-md-4">
+          <h3 class="my-3">Item Description</h3>
+          <p> <%= item.description %> </p>
+          <h3 class="my-3">Other</h3>
+          <ul>
+            <li>Spiciness: <%= item.spicy %></li>
+            <li>Rating:</li>
+            <li>Consectetur</li>
+            <li>Adipiscing Elit</li>
+          </ul>
+        </div>
+
+      </div>
+      <!-- /.row -->
+
+    <!-- Related Projects Row -->
+    <h3 class="my-4">Related Items</h3>
+
+    <div class="row">
+
+      <div class="col-md-3 col-sm-6 mb-4">
+        <a href="#">
+          <img class="img-fluid" src="http://placehold.it/500x300" alt="">
+        </a>
+      </div>
+
+      <div class="col-md-3 col-sm-6 mb-4">
+        <a href="#">
+          <img class="img-fluid" src="http://placehold.it/500x300" alt="">
+        </a>
+      </div>
+
+      <div class="col-md-3 col-sm-6 mb-4">
+        <a href="#">
+          <img class="img-fluid" src="http://placehold.it/500x300" alt="">
+        </a>
+      </div>
+
+      <div class="col-md-3 col-sm-6 mb-4">
+        <a href="#">
+          <img class="img-fluid" src="http://placehold.it/500x300" alt="">
+        </a>
+      </div>
+
+    </div>
+    <!-- /.row -->
+
     </div>
   </main>
+  <p class="margin-top-10px"></p>
+  <%- include('../partials/footer') %>
+
 </body>
 
 </html>
