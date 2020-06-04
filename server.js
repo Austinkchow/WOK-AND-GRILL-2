@@ -58,6 +58,16 @@ app.get('/', (req, res) => {
   });
 });
 
+//location Route
+app.get('/location', (req, res) => {
+  res.render('location');
+});
+
+//About us route
+app.get('/aboutus', (req, res) => {
+  res.render('about-us');
+});
+
 //auth routes
 app.use('/auth', controllers.auth);
 
