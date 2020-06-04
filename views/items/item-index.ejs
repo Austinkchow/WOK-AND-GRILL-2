@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- Internal CSS -->
+    <link rel="stylesheet" href="/style/main.css" type="text/css">
+    <link rel="stylesheet" href="/style/carosel.css" type="text/css">
+    <title>Wok & Grill Items Page</title>
+</head>
+<body> 
+    <!-- BootStrap Script Files -->
+    <%- include('../partials/bootstrapScripts') %>
+
+    <!-- Header Section -->
+    <header>
+         <%- include('../partials/nav') %>
+         <div class="spacer-top"></div>
+            <!-- Title -->
+         <h1>Item Index Page</h1>
+
+    </header>
+    <!-- Header Section -->
+
+    <!-- List of All Items -->
+    <main>
+        <h3>Items List</h3>
+
+        <!-- Create New Item -->
+        <div class="item-create/edit">
+            <a href="/items/new">Create New Item</a>
+            <!-- TODO: link to item id route -->
+            <a href="#"></a>
+        </div>
+
+        <!-- Item List -->
+        <ul class="item-list">
+            <!-- Fill out the list of items -->
+            <% items.forEach( element => {%>
+            <li>
+                <a href="/items/<%= element._id %> "><%= element.name %></a>
+                <a href="/items/<%= element._id %>/edit">Edit</a>
+            </li>
+            <%}) %>
+        </ul>
+    </main>
+</body>
+
+</html>

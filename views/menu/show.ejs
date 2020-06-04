@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <!-- Internal CSS -->
+  <link rel="stylesheet" href="/style/main.css" type="text/css">
+  <link href="/style/carosel.css" rel="stylesheet">
+  <title>Wok & Grill Menu Show page</title>
+</head>
+
+<body>
+  <!-- BootStrap Script Files -->
+  <%- include('../partials/bootstrapScripts') %>
+
+  <!-- Header Section -->
+  <header>
+    <%- include('../partials/nav') %>
+    <div class="spacer-top"></div>
+    <!-- Title -->
+    <h1><%= foundMenu.name %></h1>
+    <h4><%= foundMenu.items.length %> items</h4>
+  </header>
+  <br />
+  <br />
+  <!-- Page Content -->
+  <div class="container">
+    <!-- Page Heading/Breadcrumbs -->
+    <div class="row">
+      <% foundMenu.items.forEach(item => { %>
+      <div class="col-lg-4 col-sm-6 portfolio-item">
+        <a href="/items/<%= item._id %> ">
+          <div class="card h-100">
+            <img class="card-img-top" src="/images/BBQ_Chicken.jpg" alt="">
+            <div class="card-body">
+              <h4 class="card-title">
+                <%= item.name %>
+              </h4>
+              <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur eum
+                quasi sapiente nesciunt? Voluptatibus sit, repellat sequi itaque deserunt, dolores in, nesciunt, illum
+                tempora ex quae? Nihil, dolorem!</p>
+            </div>
+          </div>
+        </a>
+      </div>
+      <% }) %>
+    </div>
+    <!-- /.container -->
+  </div>
+
+</body>
+
+</html>

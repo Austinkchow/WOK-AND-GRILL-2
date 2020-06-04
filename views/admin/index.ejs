@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+    <!-- Internal CSS -->
+    <link rel="stylesheet" href="/style/main.css" type="text/css" />
+    <link href="/style/carosel.css" rel="stylesheet" />
+    <title>Wok & Grill Menu Page</title>
+</head>
+
+<body>
+    <!-- BootStrap Script Files -->
+    <%- include('../partials/bootstrapScripts') %>
+
+    <!-- Header Section -->
+    <header><%- include('../partials/nav') %></header>
+
+
+    <main>
+        <!-- Title -->
+        <h1>Admin Page</h1>
+        <!-- Edit Menu And Items -->
+        <ul>
+            <li>
+                <a class="nav-link" href="/menu/new">Create Menu</a>
+                <a class="nav-link" href="/items/new">Create Items</a>
+            </li>
+        </ul>
+
+        <!-- Table of Items -->
+        <div class="container">
+            <!-- Table Title -->
+            <h2>Items</h2>
+            <p>Click to Edit</p>
+            <table class="table table-hover table-bordered">
+                <tr>
+                    <th>Name</th>
+                    <th>Include Items</th>
+                </tr>
+                <% for( let index = 0; index < allMenu.length; index++ ) { %>
+                <tr>
+                    <td><a href="/menu/<%= allMenu[index]._id %>/edit"><%= allMenu[index].name%></a></td>
+                    <td> <% allMenu[index].items.forEach(item => { %>
+                        <a href="/items/<%= item._id  %>/edit "><%= item.name %> </a><br>
+                        <% }) %></td>
+                </tr>
+                <% } %>
+            </table>
+        </div>
+    </main>
+
+
+</body>
+
+</html>
