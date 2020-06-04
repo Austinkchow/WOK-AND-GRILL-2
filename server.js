@@ -51,9 +51,10 @@ const authRequired = function (req, res, next) {
 /* Routes */
 
 //Root Route
-app.get('/', (req, res) => {
-  res.render('index', {
-    user: req.session.currentUser,
+app.get("/", function (req, res) {
+  console.log(req.session.currentUser);
+  res.render("index", {
+    user: req.session.currentUser
   });
 });
 
