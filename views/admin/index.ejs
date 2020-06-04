@@ -21,28 +21,41 @@
     <!-- Header Section -->
     <header><%- include('../partials/nav') %></header>
 
-    <h1>Admin Page</h1>
-    <ul>
-        <li>
-            <a class="nav-link" href="/menu/new">Create Menu</a>
-            <a class="nav-link" href="/items/new">Create Items</a>
-        </li>
-    </ul>
-    <table>
-        <caption>click to edit</caption>
-        <tr>
-            <th>Name</th>
-            <th>Include Items</th>
-        </tr>
-        <% for( let index = 0; index < allMenu.length; index++ ) { %>
-        <tr>
-            <td><a href="/menu/<%= allMenu[index]._id %>/edit"><%= allMenu[index].name%></a></td>
-            <td> <% allMenu[index].items.forEach(item => { %>
-                <a href="/items/<%= item._id  %>/edit "><%= item.name %> </a><br>
-                <% }) %></td>
-        </tr>
-        <% } %>
-    </table>
+
+    <main>
+        <!-- Title -->
+        <h1>Admin Page</h1>
+        <!-- Edit Menu And Items -->
+        <ul>
+            <li>
+                <a class="nav-link" href="/menu/new">Create Menu</a>
+                <a class="nav-link" href="/items/new">Create Items</a>
+            </li>
+        </ul>
+
+        <!-- Table of Items -->
+        <div class="container">
+            <!-- Table Title -->
+            <h2>Items</h2>
+            <p>Click to Edit</p>
+            <table class="table table-hover table-bordered">
+                <tr>
+                    <th>Name</th>
+                    <th>Include Items</th>
+                </tr>
+                <% for( let index = 0; index < allMenu.length; index++ ) { %>
+                <tr>
+                    <td><a href="/menu/<%= allMenu[index]._id %>/edit"><%= allMenu[index].name%></a></td>
+                    <td> <% allMenu[index].items.forEach(item => { %>
+                        <a href="/items/<%= item._id  %>/edit "><%= item.name %> </a><br>
+                        <% }) %></td>
+                </tr>
+                <% } %>
+            </table>
+        </div>
+    </main>
+
+
 </body>
 
 </html>

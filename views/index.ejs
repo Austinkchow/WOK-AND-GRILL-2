@@ -20,64 +20,10 @@
 
     <!-- Header Section -->
     <!-- Navagation -->
-    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
-        <div class="container">
-
-            <!-- Dragon -->
-            <img src="/images/dragon-proverb.png" alt="Dragon" height="200">
-
-            <!-- Logo -->
-            <a href="/"><img src="/images/wok-logo.png" height="200" alt="Logo"></a>
-
-            <!-- Button Nav for smaller browser screen -->
-            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
-                data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
-                aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <!-- Nav Links -->
-            <div class="collapse navbar-collapse" id="navbarResponsive">
-                <ul class="navbar-nav ml-auto">
-                    <!-- Home -->
-                    <li class="nav-item">
-                        <a class="nav-link" href="/">Home</a>
-                    </li>
-
-                    <!-- Menus -->
-                    <li class="nav-item">
-                        <a class="nav-link" href="/menu">Menus</a>
-                    </li>
-
-                    <!-- Locations -->
-                    <li class="nav-item">
-                        <a class="nav-link" href="/location">Locations</a>
-                    </li>
-
-                    <!-- About Us -->
-                    <li class="nav-item">
-                        <a class="nav-link" href="/aboutus">About Us</a>
-                    </li>
-
-                    <!-- Login -->
-                    <% if(user){ %>
-                    <p>Welcome! <%= user.username %></p>
-                    <form action="auth/logout?_method=DELETE" method="POST">
-                        <input type="submit" value="Logout" />
-                    </form>
-                    <% } else { %>
-                    <a href="/auth/login">Login</a>
-                    <a href="/auth/register">Register</a>
-                    <% } %>
-
-            </div>
-        </div>
-
-    </nav>
-    <p class="spacer-top"></p>
+    <header><%- include('partials/nav') %></header>
 
     <!-- Advertizing Slides -->
-    <section class="spacer-top-reverse">
+    <section class="spacer-top-reverse border-black ads">
         <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
 
             <ol class="carousel-indicators">
@@ -131,11 +77,11 @@
 
 
     <!-- Main Section -->
-    <main>
+    <main class="border-black">
         <!-- Chinese Food Proverb -->
         <img class="proverb" src="images/chinese-proverb.png" alt="proverb" height="200">
 
-    </main>
+        <!-- Content -->
 
     <footer class="py-5 bg-dark">
         <div class="container">
