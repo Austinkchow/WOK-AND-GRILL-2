@@ -42,11 +42,13 @@ app.use(
 );
 
 const authRequired = function (req, res, next) {
-  if (!req.session.currentUser) {
-    return res.redirect('auth/login');
+  if (req.session.currentUser.username === "admin") {
+    return res.redirect('/admin');
   }
   next();
 };
+
+
 /* Routes */
 
 //Root Route
@@ -58,6 +60,9 @@ app.get('/', (req, res) => {
 
 //auth routes
 app.use('/auth', controllers.auth);
+
+//admin routes
+app.use('/admin', controllers.admin);
 
 //Menu Route
 app.use('/menu', controllers.menu);
