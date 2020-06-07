@@ -20,7 +20,11 @@ router.get('/', (req, res) => {
 
 //create route
 router.post('/', (req, res) => {
-    db.Comment.create(req.body, (error, addComment) => {
+    comment = {
+        name: req.session.currentUser.username,
+        text: req.body.text
+    }
+    db.Comment.create(comment, (error, addComment) => {
         if (error) {
             console.log(error);
         } else {

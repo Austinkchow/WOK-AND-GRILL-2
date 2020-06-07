@@ -44,7 +44,7 @@ app.use(
 
 //Root Route
 app.get('/', function (req, res) {
-  console.log(req.session.currentUser.id);
+  console.log(req.session.currentUser);
   res.render('index', {
     user: req.session.currentUser,
   });
