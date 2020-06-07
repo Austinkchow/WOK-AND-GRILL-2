@@ -52,6 +52,28 @@
                 <% } %>
             </table>
         </div>
+        <div class="container">
+            <!-- Table Title -->
+            <h2>Comments</h2>
+            <table class="table table-hover table-bordered">
+                <tr>
+                    <th>Name</th>
+                    <th>Comment</th>
+                    <th>Deleted</th>
+                </tr>
+                <% for( let index = 0; index < allComment.length; index++ ) { %>
+                <tr>
+                    <td><%= allComment[index].name%></td>
+                    <td> <%= allComment[index].text%></td>
+                    <td>
+                        <form action="/comments/<%= allComment[index]._id %>?_method=DELETE" method="POST">
+                            <input type="submit" value="Delete">
+                        </form>
+                    </td>
+                </tr>
+                <% } %>
+            </table>
+        </div>
     </main>
 
 

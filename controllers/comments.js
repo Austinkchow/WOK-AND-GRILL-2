@@ -34,4 +34,15 @@ router.post('/', (req, res) => {
     });
 });
 
+//delete route
+router.delete('/:id', (req, res) => {
+    db.Comment.findByIdAndDelete(req.params.id, (error, deletedComment) => {
+        if (error) {
+            console.log(error);
+        } else {
+            res.redirect('/admin');
+        }
+    })
+})
+
 module.exports = router;
