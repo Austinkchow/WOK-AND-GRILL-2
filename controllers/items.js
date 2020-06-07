@@ -63,25 +63,6 @@ router.post("/", async function (req, res) {
     }
 });
 
-/* show route*/
-router.get("/:id", async function (req, res) {
-    try {
-        // run code
-        const foundItem = await db.Item.findById(req.params.id);
-        const context = {
-            item: foundItem,
-            user: req.session.currentUser
-        };
-        res.render("items/item-display", context);
-    } catch (error) {
-        console.log(error);
-        res.send({
-            message: "Internal Server Error"
-        });
-    }
-});
-
-
 /* edit route */
 router.get("/:id/edit", async function (req, res) {
     try {
