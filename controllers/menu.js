@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const db = require('../models');
-
+const adminRequired = require('../middleware/adminRequire');
 //routes
 
 //index route
@@ -19,7 +19,7 @@ router.get('/', (req, res) => {
 });
 
 //new route
-router.get('/new', (req, res) => {
+router.get('/new', adminRequired, (req, res) => {
   res.render('menu/new');
 });
 
@@ -50,7 +50,7 @@ router.get('/:index', (req, res) => {
 });
 
 //edit route
-router.get('/:index/edit', (req, res) => {
+router.get('/:index/edit', adminRequired, (req, res) => {
   db.Menu.findById(req.params.index, (error, editedMenu) => {
     if (error) {
       console.log(error);
