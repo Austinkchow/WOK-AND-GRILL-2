@@ -3,5 +3,7 @@ module.exports = {
     menu: require('./menu'),
     auth: require('./auth'),
     admin: require('./admin'),
-    comments: require('./comments')
+    comments: require('./comments'),
+    hour: require('./hour'),
+    slide: require('./slide')
 }

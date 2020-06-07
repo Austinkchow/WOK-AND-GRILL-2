@@ -11,13 +11,12 @@
     <!-- Internal CSS -->
     <link rel="stylesheet" href="/style/main.css" type="text/css">
     <link href="/style/carosel.css" rel="stylesheet">
-    <title>Wok & Grill Menu Create Page</title>
+    <title>Wok & Grill About us </title>
 </head>
 
 <body>
     <!-- BootStrap Script Files -->
     <%- include('partials/bootstrapScripts') %>
-
     <!-- Header Section -->
     <header>
         <%- include('partials/nav') %>
@@ -29,20 +28,41 @@
     <h1>About US</h1>
     <p>Work and Grill has been establish since 2003. It has been serving the best quality Hawaiian Chinese food to
         neighborhood.</p>
-    <section>
-        <p>Office Hours</p>
-        <p>Monday: 11AM-8PM</p>
-        <p>Tuesday: 11AM-8PM</p>
-        <p>Wednesday: 11AM-8PM</p>
-        <p>Thursday: 11AM-8PM</p>
-        <p>Friday: 11AM-8PM</p>
-        <p>Saturday: 11AM-8PM</p>
-        <p>Sunday: 11AM-8PM</p>
-    </section>
+
     <p>Phone: (909) 548-2088</p>
     <p>Order:
         <a href="https://www.doordash.com/store/wok-grill-chino-27444/en-US/?utm_campaign=gpa">Doordash.com</a>
     </p>
+
+    <div class="container">
+        <h2> Hours </h2>
+        <div class="container">
+            <table class="table table-hover table-bordered">
+                <tr>
+                    <th>Day</th>
+                    <th>Start</th>
+                    <th>End</th>
+                </tr>
+                <% for( let j = 0; j < day.length; j++ ) { %>
+                <% for( let index = 0; index < allHour.length; index++ ) { %>
+                <% if (allHour[index].day === day[j]) { %>
+                <tr>
+                    <form action="/hour/<%= allHour[index]._id %>?_method=PUT" method="POST">
+                        <td><%= allHour[index].day%></td>
+                        <td><%= allHour[index].start%></td>
+                        <td><%= allHour[index].end%></td>
+                    </form>
+                </tr>
+                <% } %>
+                <% } %>
+                <% } %>
+            </table>
+        </div>
+    </div>
+    <!-- End of Table -->
+
+    <!-- footer -->
+    <%- include('partials/footer') %>
 </body>
 
 </html>

@@ -7,6 +7,8 @@ const MongoStore = require('connect-mongo')(session);
 
 /* Internal Modules */
 const controllers = require('./controllers');
+const adminRequired = require('./middleware/adminRequire');
+const db = require('./models/Index');
 
 /* Instance Module */
 const app = express();
@@ -25,7 +27,7 @@ app.use(
 );
 app.use(methodOverride('_method'));
 
-/* Ability to use the public foleder */
+/* Ability to use the public folder */
 app.use(express.static(__dirname + '/public'));
 app.use(
   session({
@@ -41,46 +43,78 @@ app.use(
   })
 );
 
-const authRequired = function (req, res, next) {
-  if (req.session.currentUser.username === 'admin') {
-    return res.redirect('/admin');
-  }
-  next();
-};
-
-/* Routes */
-
 //Root Route
-app.get('/', (req, res) => {
-  res.render('index', {
-    user: req.session.currentUser,
+app.get('/', function (req, res) {
+  db.Slide.find({}, (error, allSlide) => {
+    if (error) {
+      console.log(error);
+    } else {
+      const context = {
+        allSlide: allSlide,
+        user: req.session.currentUser
+      };
+      console.log(req.session.currentUser)
+      res.render('index', context);
+    }
   });
 });
 
 //location Route
 app.get('/location', (req, res) => {
-  res.render('location');
+  const context = {
+    user: req.session.currentUser
+  };
+  res.render('location', context);
 });
 
 //About us route
 app.get('/aboutus', (req, res) => {
-  res.render('about-us');
+  db.Hour.find({}, (error, allHour) => {
+    if (error) {
+      console.log(error);
+    } else {
+      const context = {
+        allHour: allHour,
+        day: [
+          'Sunday',
+          'Monday',
+          'Tuesday',
+          'Wednesday',
+          'Thursday',
+          'Friday',
+          'Saturday',
+        ],
+        user: req.session.currentUser
+      };
+      res.render('about-us', context);
+    }
+  });
 });
 
 //auth routes
 app.use('/auth', controllers.auth);
 
 //admin routes
-app.use('/admin', controllers.admin);
+app.use('/admin', adminRequired, controllers.admin);
 
 //Menu Route
 app.use('/menu', controllers.menu);
 
 //Item Route
-app.use('/items', controllers.items);
+app.use('/items', adminRequired, controllers.items);
 
-//Item Route
+//comments Route
 app.use('/comments', controllers.comments);
+
+//hour Route
+app.use('/hour', adminRequired, controllers.hour);
+
+//slide Route
+app.use('/slide', adminRequired, controllers.slide);
+
+app.use((req, res) => {
+  res.status(404).render('404');
+});
 
 //Binding Server to Port
 app.listen(PORT, () => {

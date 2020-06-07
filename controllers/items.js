@@ -3,7 +3,7 @@ const express = require('express');
 const router = express.Router();
 
 /* Internal Modules */
-const db = require('../models');
+const db = require('../models/Index');
 
 
 /* ----- ----- ----- ----- Routes ----- ----- ----- -----*/
@@ -16,7 +16,8 @@ router.get("/", async function (req, res) {
         // run code
         const allItem = await db.Item.find({});
         const context = {
-            items: allItem
+            items: allItem,
+            user: req.session.currentUser
         };
         res.render("items/item-index", context);
     } catch (error) {
@@ -32,7 +33,8 @@ router.get("/new", async function (req, res) {
     try {
         const allMenu = await db.Menu.find({});
         const context = {
-            allMenu: allMenu
+            allMenu: allMenu,
+            user: req.session.currentUser
         }
         //run code
         res.render("items/item-new", context);
@@ -61,31 +63,14 @@ router.post("/", async function (req, res) {
     }
 });
 
-/* show route*/
-router.get("/:id", async function (req, res) {
-    try {
-        // run code
-        const foundItem = await db.Item.findById(req.params.id);
-        const context = {
-            item: foundItem
-        };
-        res.render("items/item-display", context);
-    } catch (error) {
-        console.log(error);
-        res.send({
-            message: "Internal Server Error"
-        });
-    }
-});
-
-
 /* edit route */
 router.get("/:id/edit", async function (req, res) {
     try {
         //run code
         const foundItem = await db.Item.findById(req.params.id);
         const context = {
-            item: foundItem
+            item: foundItem,
+            user: req.session.currentUser
         }
         res.render("items/item-edit", context);
     } catch (error) {
