@@ -65,17 +65,19 @@
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true"
             aria-expanded="false">
-            Login 登錄
+            Account 帳戶
           </a>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="/auth/login">Login 登錄</a>
-            <a class="dropdown-item" href="/auth/register">Register 登記</a>
+            <% if (user) {%>
             <form action="/auth/logout?_method=DELETE" method="POST">
               <input class="dropdown-item" type="submit" value="Logout 登出" />
             </form>
+            <%} else {%>
+            <a class="dropdown-item" href="/auth/login">Login 登錄</a>
+            <a class="dropdown-item" href="/auth/register">Register 登記</a>
+            <%}%>
           </div>
-        </li>
-
+        </li> 
     </div>
   </div>
 
