@@ -20,15 +20,7 @@
 
     <!-- Header Section -->
     <header>
-<<<<<<< HEAD
         <%- include('../partials/nav') %>
-        <div class="spacer-top"></div>
-        <!-- Title -->
-        <h1>Item Index Page</h1>
-
-=======
-         <%- include('../partials/nav') %>
->>>>>>> submaster
     </header>
 
     <!-- Title -->
@@ -52,13 +44,13 @@
                     <th>Name</th>
                     <th>Options</th>
                 </tr>
-               
+
                 <% items.forEach( element => { %>
                 <tr>
-                   <td><a href="/items/<%= element._id %> "><%= element.name %></a></td>
-                   <td><a href="/items/<%= element._id %>/edit">Edit</a></td>
+                    <td><a href="/items/<%= element._id %> "><%= element.name %></a></td>
+                    <td><a href="/items/<%= element._id %>/edit">Edit</a></td>
                 </tr>
-               <% }) %>
+                <% }) %>
             </table>
         </div>
     </main>
