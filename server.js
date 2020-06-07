@@ -8,7 +8,6 @@ const MongoStore = require('connect-mongo')(session);
 /* Internal Modules */
 const controllers = require('./controllers');
 const adminRequired = require('./middleware/adminRequire');
-const authRequired = require('./middleware/authRequire');
 const db = require('./models/Index');
 
 /* Instance Module */
@@ -54,6 +53,7 @@ app.get('/', function (req, res) {
         allSlide: allSlide,
         user: req.session.currentUser
       };
+      console.log(req.session.currentUser)
       res.render('index', context);
     }
   });
@@ -104,7 +104,7 @@ app.use('/menu', controllers.menu);
 app.use('/items', adminRequired, controllers.items);
 
 //comments Route
-app.use('/comments', adminRequired, controllers.comments);
+app.use('/comments', controllers.comments);
 
 //hour Route
 app.use('/hour', adminRequired, controllers.hour);
