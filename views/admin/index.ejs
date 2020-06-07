@@ -74,6 +74,34 @@
                 <% } %>
             </table>
         </div>
+        <div class="container">
+            <!-- Table Title -->
+            <h2>Office Hour</h2>
+            <table class="table table-hover table-bordered">
+                <tr>
+                    <th>Day</th>
+                    <th>Start</th>
+                    <th>End</th>
+                    <th>Edit</th>
+                </tr>
+                <% for( let j = 0; j < day.length; j++ ) { %>
+                <% for( let index = 0; index < allHour.length; index++ ) { %>
+                <% if (allHour[index].day === day[j]) { %>
+                <tr>
+                    <td><%= allHour[index].day%></td>
+                    <td><%= allHour[index].start%></td>
+                    <td><%= allHour[index].end%></td>
+                    <td>
+                        <form action="/comments/<%= allHour[index]._id %>?_method=PUT" method="POST">
+                            <input type="submit" value="Edit">
+                        </form>
+                    </td>
+                </tr>
+                <% } %>
+                <% } %>
+                <% } %>
+            </table>
+        </div>
     </main>
 
 

@@ -13,16 +13,22 @@ router.get('/', (req, res) => {
                     if (error) {
                         console.log(error);
                     } else {
-                        const context = {
-                            allMenu: allMenu,
-                            allComment: allComment
-                        };
-                        res.render('admin/index', context);
+                        db.Hour.find({}, (error, allHour) => {
+                            if (error) {
+                                console.log(error);
+                            } else {
+                                const context = {
+                                    allMenu: allMenu,
+                                    allComment: allComment,
+                                    allHour: allHour,
+                                    day: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", ]
+                                };
+                                res.render('admin/index', context);
+                            }
+                        })
                     }
                 })
-
-            }
+            };
         })
 });
-
 module.exports = router;

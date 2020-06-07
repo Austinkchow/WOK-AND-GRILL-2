@@ -1,6 +1,11 @@
 const db = require('./models')
 
 const hour = [{
+        day: "Sunday",
+        start: "11AM",
+        end: "8PM"
+    },
+    {
         day: "Monday",
         start: "11AM",
         end: "8PM"
@@ -30,11 +35,6 @@ const hour = [{
         start: "11AM",
         end: "8PM"
     },
-    {
-        day: "Sunday",
-        start: "11AM",
-        end: "8PM"
-    }
 ]
 for (let i = 0; i < hour.length; i++) {
     db.Hour.create(hour[i], function (error, createdHour) {
@@ -47,7 +47,7 @@ for (let i = 0; i < hour.length; i++) {
 };
 
 
-const entreeItems = [{
+/* const entreeItems = [{
         name: "Orange Chicken",
         image: "public/images/Orange-Chicken.jpg",
         description: "Crispy chicken wok-tossed in a sweet and spicy orange sauce.",
@@ -116,4 +116,4 @@ for (let i = 0; i < menu.length; i++) {
             console.log(menu[i])
         }
     })
-};
+}; */
