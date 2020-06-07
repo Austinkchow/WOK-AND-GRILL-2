@@ -23,12 +23,16 @@
 
     <br />
     <h1>Comment wall</h1>
-
-    <h4>How do you fee?</h4>
+    <% if (user) { %>
+    <h4>Comment</h4>
     <form action="/comments" method="POST">
         <textarea name="text" rows="3" cols="40"></textarea>
         <input type="submit" value="Create">
     </form>
+    <% } else {%>
+    <h4>Please sign in to comment</h4>
+    <% } %>
+
 
     <div class="container">
         <div class="row">

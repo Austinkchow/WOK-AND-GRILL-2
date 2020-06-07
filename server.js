@@ -8,6 +8,7 @@ const MongoStore = require('connect-mongo')(session);
 /* Internal Modules */
 const controllers = require('./controllers');
 const adminRequired = require('./middleware/adminRequire');
+const authRequired = require('./middleware/authRequire');
 
 /* Instance Module */
 const app = express();

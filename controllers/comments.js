@@ -12,6 +12,7 @@ router.get('/', (req, res) => {
         } else {
             const context = {
                 allComments: allComments,
+                user: req.session.currentUser,
             };
             res.render('comments', context);
         }
