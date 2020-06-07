@@ -5,8 +5,9 @@ const db = require('../models');
 //routes
 
 //edit route
+
 //update route
-router.put('hour/:index', (req, res) => {
+router.put('/:index', (req, res) => {
     db.Hour.findByIdAndUpdate(
         req.params.index,
         req.body, {

@@ -82,20 +82,18 @@
                     <th>Day</th>
                     <th>Start</th>
                     <th>End</th>
-                    <th>Edit</th>
+                    <th>Update</th>
                 </tr>
                 <% for( let j = 0; j < day.length; j++ ) { %>
                 <% for( let index = 0; index < allHour.length; index++ ) { %>
                 <% if (allHour[index].day === day[j]) { %>
                 <tr>
-                    <td><%= allHour[index].day%></td>
-                    <td><%= allHour[index].start%></td>
-                    <td><%= allHour[index].end%></td>
-                    <td>
-                        <form action="/comments/<%= allHour[index]._id %>?_method=PUT" method="POST">
-                            <input type="submit" value="Edit">
-                        </form>
-                    </td>
+                    <form action="/hour/<%= allHour[index]._id %>?_method=PUT" method="POST">
+                        <td><%= allHour[index].day%></td>
+                        <td><input type="text" name="start" placeholder="<%= allHour[index].start%>"></td>
+                        <td><input type="text" name="end" placeholder="<%= allHour[index].end%>"></td>
+                        <td><input type="submit" value="Update"></td>
+                    </form>
                 </tr>
                 <% } %>
                 <% } %>

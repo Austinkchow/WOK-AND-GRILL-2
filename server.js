@@ -9,6 +9,7 @@ const MongoStore = require('connect-mongo')(session);
 const controllers = require('./controllers');
 const adminRequired = require('./middleware/adminRequire');
 const authRequired = require('./middleware/authRequire');
+const db = require('./models');
 
 /* Instance Module */
 const app = express();
@@ -58,7 +59,17 @@ app.get('/location', (req, res) => {
 
 //About us route
 app.get('/aboutus', (req, res) => {
-  res.render('about-us');
+  db.Hour.find({}, (error, allHour) => {
+    if (error) {
+      console.log(error);
+    } else {
+      const context = {
+        allHour: allHour,
+        day: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", ]
+      };
+      res.render('about-us', context);
+    }
+  });
 });
 
 //auth routes
@@ -76,9 +87,12 @@ app.use('/items', adminRequired, controllers.items);
 //comments Route
 app.use('/comments', controllers.comments);
 
-app.use((req, res) => {
+//hour Route
+app.use('/hour', controllers.hour);
+
+/* app.use((req, res) => {
   res.status(404).render('404');
-});
+}); */
 
 //Binding Server to Port
 app.listen(PORT, () => {
