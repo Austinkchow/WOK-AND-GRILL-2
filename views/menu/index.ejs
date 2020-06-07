@@ -1,32 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <!-- Internal CSS -->
+    <link rel="stylesheet" href="/style/main.css" type="text/css" />
+    <link href="/style/carosel.css" rel="stylesheet" />
+    <title>Wok & Grill Menu Page</title>
+  </head>
 
-<head>
-  <!-- Required meta tags -->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <!-- Internal CSS -->
-  <link rel="stylesheet" href="/style/main.css" type="text/css">
-  <link href="/style/carosel.css" rel="stylesheet">
-  <title>Wok & Grill Menu Page</title>
-</head>
+  <body>
+    <!-- BootStrap Script Files -->
+    <%- include('../partials/bootstrapScripts') %>
 
-<body>
-  <!-- BootStrap Script Files -->
-  <%- include('../partials/bootstrapScripts') %>
+    <!-- Header Section -->
+    <header><%- include ('../partials/nav') %></header>
 
-  <!-- Header Section -->
-  <header> <%- include('../partials/nav') %></header>
-
-  <!-- Page Content -->
-  <div class="container">
-   <!-- Page Heading/Breadcrumbs -->
+    <!-- Page Content -->
+    <div class="container">
+      <!-- Page Heading/Breadcrumbs -->
 
       <!-- Title -->
-      <h1 class="mt-4 mb-3">Menu
+      <h1 class="mt-4 mb-3">
+        Menu
         <small></small>
       </h1>
 
@@ -43,41 +50,41 @@
         </li>
       </ol>
 
+      <!-- List of Menus -->
+      <div class="row">
+        <% allMenu.forEach(element => { %>
 
-    <!-- List of Menus -->
-    <div class="row">
-
-      <% allMenu.forEach(element => { %>
-
-      <!-- ----------------------------M E N U ---- C A R D -------------------- -->
-      <div class="col-lg-4 col-sm-6 portfolio-item">
-        
+        <!-- ----------------------------M E N U ---- C A R D -------------------- -->
+        <div class="col-lg-4 col-sm-6 portfolio-item">
           <div class="card h-100">
             <!-- Menu Image -->
-            <img class="card-img-top" src="<%= element.image %>" alt="Menu Image">
+            <img
+              class="card-img-top"
+              src="<%= element.image %>"
+              alt="Menu Image"
+            />
             <div class="card-body">
               <!-- Menu Title -->
-              <h4 class="card-title"> <a href="/menu/<%= element._id %> "><%= element.name %></a></h4>
-           
+              <h4 class="card-title">
+                <a href="/menu/<%= element._id %> "><%= element.name %></a>
+              </h4>
             </div>
           </div>
+        </div>
+        <!-- ----------------------------M E N U ---- C A R D -------------------- -->
 
+        <% }) %>
       </div>
-       <!-- ----------------------------M E N U ---- C A R D -------------------- -->
-
-      <% }) %>
-
+      <!-- /.container -->
     </div>
-    <!-- /.container -->
-  </div>
 
-<!-- Footer -->
-<footer class="py-5 bg-dark">
-  <div class="container">
-    <p class="m-0 text-center text-white">Copyright &copy; Wok & Grill 2020</p>
-  </div>
-</footer>
-
-</body>
-
+    <!-- Footer -->
+    <footer class="py-5 bg-dark">
+      <div class="container">
+        <p class="m-0 text-center text-white">
+          Copyright &copy; Wok & Grill 2020
+        </p>
+      </div>
+    </footer>
+  </body>
 </html>
