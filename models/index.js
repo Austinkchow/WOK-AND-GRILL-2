@@ -27,5 +27,6 @@ module.exports = {
   Item: require('./Item'),
   User: require('./User'),
   Comment: require('./Comment'),
-  Hour: require('./Hour')
+  Hour: require('./Hour'),
+  Slide: require('./Slide')
 };

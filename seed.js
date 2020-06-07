@@ -1,119 +1,25 @@
-const db = require('./models')
+const db = require('./models/Index')
 
-const hour = [{
-        day: "Sunday",
-        start: "11AM",
-        end: "8PM"
+const slides = [{
+        image: "https://i.ytimg.com/vi/y_iPjuncrII/maxresdefault.jpg",
+        comment: "fried wonton"
     },
     {
-        day: "Monday",
-        start: "11AM",
-        end: "8PM"
+        image: "https://img.sndimg.com/food/image/upload/v1/img/recipes/10/32/15/W6FoUgXyRnaFTQjc1Nkw_0S9A2630.jpg",
+        comment: "Orange Chicken"
     },
     {
-        day: "Tuesday",
-        start: "11AM",
-        end: "8PM"
-    },
-    {
-        day: "Wednesday",
-        start: "11AM",
-        end: "8PM"
-    },
-    {
-        day: "Thursday",
-        start: "11AM",
-        end: "8PM"
-    },
-    {
-        day: "Friday",
-        start: "11AM",
-        end: "8PM"
-    },
-    {
-        day: "Saturday",
-        start: "11AM",
-        end: "8PM"
-    },
-]
-for (let i = 0; i < hour.length; i++) {
-    db.Hour.create(hour[i], function (error, createdHour) {
-        if (error) {
-            console.log(error);
-        } else {
-            console.log(hour[i]);
-        }
-    })
-};
-
-
-/* const entreeItems = [{
-        name: "Orange Chicken",
-        image: "public/images/Orange-Chicken.jpg",
-        description: "Crispy chicken wok-tossed in a sweet and spicy orange sauce.",
-        spicy: 2
-    },
-    {
-        name: "Short Ribs",
-        image: "public/images/Short-ribs.jpg",
-        description: "Iron pan sizzling short-ribs with salt and pepper.",
-        spicy: 1
-    },
-    {
-        name: "Mushroom Beef",
-        image: "public/images/Mushroom-Beef.jpg",
-        description: "Wok fried seasoned beef with mushroom ",
-        spicy: 2
-    },
-    {
-        name: "Kung Pao Chicken",
-        image: "public/images/Kung-Pao-Chicken.jpg",
-        description: "Wok Fried chicken, celery and peanut with Kung Pao sauce.",
-        spicy: 3
-    },
-    {
-        name: "Chicken Katsu",
-        image: "public/images/Chicken-Katsu.jpg",
-        description: "Japanese style Deep Fried crispy chicken.",
-        spicy: 1
-    },
-    {
-        name: "Combo",
-        image: "public/images/Combo1.jpg",
-        description: "Mix and match different kind of entree and side",
-        spicy: 2
-    },
-]
-for (let i = 0; i < entreeItems.length; i++) {
-    db.Item.create(entreeItems[i], function (error, createdHour) {
-        if (error) {
-            console.log(error);
-        } else {
-            console.log(entreeItems[i])
-        }
-    })
-};
-
-const menu = [{
-        name: "Entree",
-        image: "/images/Orange-Chicken.jpg",
-    },
-    {
-        name: "side",
-        image: "/images/Hawaiian-Fried-Rice.jpg",
-    },
-    {
-        name: "Appetizer",
-        image: "/images/Misubi.jpg",
+        image: "https://tasteasianfood.com/wp-content/uploads/2019/07/Mooncake-thumbnail-250x180.jpeg",
+        comment: "Tea"
     }
-]
 
-for (let i = 0; i < menu.length; i++) {
-    db.Menu.create(menu[i], function (error, createdHour) {
+]
+for (let i = 0; i < slides.length; i++) {
+    db.Slide.create(slides[i], function (error, createdSlide) {
         if (error) {
             console.log(error);
         } else {
-            console.log(menu[i])
+            console.log(slides[i]);
         }
     })
-}; */
+};

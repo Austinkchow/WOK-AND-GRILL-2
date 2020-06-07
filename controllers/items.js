@@ -3,7 +3,7 @@ const express = require('express');
 const router = express.Router();
 
 /* Internal Modules */
-const db = require('../models');
+const db = require('../models/Index');
 
 
 /* ----- ----- ----- ----- Routes ----- ----- ----- -----*/

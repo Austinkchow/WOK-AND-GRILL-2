@@ -9,11 +9,13 @@ const hourSchema = new mongoose.Schema({
     },
     start: {
         type: String,
-        required: true
+        required: true,
+        default: "11AM"
     },
     end: {
         type: String,
-        required: true
+        required: true,
+        default: "9PM"
     },
 });
 

@@ -4,5 +4,6 @@ module.exports = {
     auth: require('./auth'),
     admin: require('./admin'),
     comments: require('./comments'),
-    hour: require('./hour')
+    hour: require('./hour'),
+    slide: require('./slide')
 }

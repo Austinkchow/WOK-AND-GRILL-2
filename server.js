@@ -9,7 +9,7 @@ const MongoStore = require('connect-mongo')(session);
 const controllers = require('./controllers');
 const adminRequired = require('./middleware/adminRequire');
 const authRequired = require('./middleware/authRequire');
-const db = require('./models');
+const db = require('./models/Index');
 
 /* Instance Module */
 const app = express();
@@ -46,9 +46,15 @@ app.use(
 
 //Root Route
 app.get('/', function (req, res) {
-  console.log(req.session.currentUser);
-  res.render('index', {
-    user: req.session.currentUser,
+  db.Slide.find({}, (error, allSlide) => {
+    if (error) {
+      console.log(error)
+    } else {
+      const context = {
+        allSlide: allSlide
+      }
+      res.render('index', context)
+    }
   });
 });
 
@@ -89,6 +95,9 @@ app.use('/comments', controllers.comments);
 
 //hour Route
 app.use('/hour', controllers.hour);
+
+//slide Route
+app.use('/slide', controllers.slide);
 
 /* app.use((req, res) => {
   res.status(404).render('404');

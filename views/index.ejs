@@ -33,32 +33,26 @@
 
             <div class="carousel-inner" role="listbox">
                 <!-- Slide One -->
-                <div class="carousel-item active" style="
-              background-image: url('https://i.ndtvimg.com/i/2016-06/chinese-625_625x350_81466064119.jpg');
-            ">
+                <div class="carousel-item active" style="background-image: url(<%= allSlide[0].image %>)">
                     <div class="carousel-caption d-none d-md-block">
-                        <h3>First Slide</h3>
-                        <p>This is a description for the first slide.</p>
+                        <h3><%= allSlide[0].comment %></h3>
+                        <p><%= allSlide[0].description %></p>
                     </div>
                 </div>
 
                 <!-- Slide Two  -->
-                <div class="carousel-item" style="
-              background-image: url('https://tasteasianfood.com/wp-content/uploads/2019/07/Mooncake-thumbnail-250x180.jpeg');
-            ">
+                <div class="carousel-item" style="background-image: url(<%= allSlide[1].image %>)">
                     <div class="carousel-caption d-none d-md-block">
-                        <h3>Second Slide</h3>
-                        <p>This is a description for the second slide.</p>
+                        <h3><%= allSlide[1].comment %></h3>
+                        <p><%= allSlide[1].description %></p>
                     </div>
                 </div>
 
                 <!-- Slide Three -->
-                <div class="carousel-item" style="
-              background-image: url('https://www.teasoul.net/modules/prestablog/views/img/grid-for-1-7/up-img/115.jpg');
-            ">
+                <div class="carousel-item" style="background-image: url(<%= allSlide[2].image %>)">
                     <div class="carousel-caption d-none d-md-block">
-                        <h3>Third Slide</h3>
-                        <p>This is a description for the third slide.</p>
+                        <h3><%= allSlide[2].comment %></h3>
+                        <p><%= allSlide[2].description %></p>
                     </div>
                 </div>
             </div>
