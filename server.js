@@ -48,19 +48,23 @@ app.use(
 app.get('/', function (req, res) {
   db.Slide.find({}, (error, allSlide) => {
     if (error) {
-      console.log(error)
+      console.log(error);
     } else {
       const context = {
-        allSlide: allSlide
-      }
-      res.render('index', context)
+        allSlide: allSlide,
+        user: req.session.currentUser
+      };
+      res.render('index', context);
     }
   });
 });
 
 //location Route
 app.get('/location', (req, res) => {
-  res.render('location');
+  const context = {
+    user: req.session.currentUser
+  };
+  res.render('location', context);
 });
 
 //About us route
@@ -71,7 +75,16 @@ app.get('/aboutus', (req, res) => {
     } else {
       const context = {
         allHour: allHour,
-        day: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", ]
+        day: [
+          'Sunday',
+          'Monday',
+          'Tuesday',
+          'Wednesday',
+          'Thursday',
+          'Friday',
+          'Saturday',
+        ],
+        user: req.session.currentUser
       };
       res.render('about-us', context);
     }
@@ -91,17 +104,17 @@ app.use('/menu', controllers.menu);
 app.use('/items', adminRequired, controllers.items);
 
 //comments Route
-app.use('/comments', controllers.comments);
+app.use('/comments', adminRequired, controllers.comments);
 
 //hour Route
-app.use('/hour', controllers.hour);
+app.use('/hour', adminRequired, controllers.hour);
 
 //slide Route
-app.use('/slide', controllers.slide);
+app.use('/slide', adminRequired, controllers.slide);
 
-/* app.use((req, res) => {
+app.use((req, res) => {
   res.status(404).render('404');
-}); */
+});
 
 //Binding Server to Port
 app.listen(PORT, () => {

@@ -12,6 +12,7 @@ router.get('/', (req, res) => {
     } else {
       const context = {
         allMenu: allMenu,
+        user: req.session.currentUser
       };
       res.render('menu/index', context);
     }
@@ -20,7 +21,10 @@ router.get('/', (req, res) => {
 
 //new route
 router.get('/new', adminRequired, (req, res) => {
-  res.render('menu/new');
+  const context = {
+    user: req.session.currentUser
+  };
+  res.render('menu/new', context);
 });
 
 //create route
@@ -43,6 +47,7 @@ router.get('/:index', (req, res) => {
       } else {
         const context = {
           foundMenu: foundMenu,
+          user: req.session.currentUser
         };
         res.render('menu/show', context);
       }
@@ -57,6 +62,7 @@ router.get('/:index/edit', adminRequired, (req, res) => {
     } else {
       const context = {
         editedMenu: editedMenu,
+        user: req.session.currentUser
       };
       res.render('menu/edit', context);
     }

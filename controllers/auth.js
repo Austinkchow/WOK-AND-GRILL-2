@@ -6,7 +6,10 @@ const db = require('../models/Index');
 
 //register form
 router.get('/register', function (req, res) {
-    res.render('auth/register');
+    const context = {
+        user: req.session.currentUser,
+    };
+    res.render('auth/register', context);
 });
 
 //register post
@@ -35,7 +38,10 @@ router.post('/register', async function (req, res) {
 
 //login form
 router.get('/login', function (req, res) {
-    res.render('auth/login');
+    const context = {
+        user: req.session.currentUser,
+    };
+    res.render('auth/login', context);
 });
 
 //login post
@@ -69,7 +75,10 @@ router.post('/login', async function (req, res) {
 });
 
 router.get('/log-in', function (req, res) {
-    res.render('auth/log-in');
+    const context = {
+        user: req.session.currentUser,
+    };
+    res.render('auth/log-in', context);
 });
 
 //login post
