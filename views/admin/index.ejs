@@ -22,25 +22,25 @@
     <header><%- include('../partials/nav')%></header>
 
     <!-- Page Content -->
-  <div class="container mt-4">
+    <div class="container mt-4">
 
         <!-- Title -->
         <h1 class="mt-4 mb-3">
-        Admin Editor
-        <small></small>
+            Admin Editor
+            <small></small>
         </h1>
 
         <ol class="breadcrumb">
-        <!-- <li class="breadcrumb-item">
+            <!-- <li class="breadcrumb-item">
             <a href="/admin">Admin</a>
         </li> -->
 
-        <li class="breadcrumb-item active">Admin Site Editor</li>
+            <li class="breadcrumb-item active">Admin Site Editor</li>
 
-        <!-- Back Button -->
-        <li class="breadcrumb-item">
-            <a href="javascript:history.back()"> ... Previous Page</a>
-        </li>
+            <!-- Back Button -->
+            <li class="breadcrumb-item">
+                <a href="javascript:history.back()"> ... Previous Page</a>
+            </li>
         </ol>
 
         <!-- Page Content -->
@@ -115,8 +115,8 @@
                     <tr>
                         <form action="/hour/<%= allHour[index]._id %>?_method=PUT" method="POST">
                             <td><%= allHour[index].day%></td>
-                            <td><input type="text" name="start" placeholder="<%= allHour[index].start%>"></td>
-                            <td><input type="text" name="end" placeholder="<%= allHour[index].end%>"></td>
+                            <td><input type="text" name="start" placeholder="<%= allHour[index].start %>" required></td>
+                            <td><input type="text" name="end" placeholder="<%= allHour[index].end%>" required></td>
                             <td><input type="submit" value="Update"></td>
                         </form>
                     </tr>
@@ -126,7 +126,7 @@
                 </table>
             </div>
 
-            
+
             <!-- SLide Banner EDITOR -->
             <div class="container mt-4 p-4 border-black">
                 <!-- Table Title -->
@@ -135,13 +135,17 @@
                     <tr>
                         <th>Image</th>
                         <th>Comment</th>
+                        <th>description</th>
                         <th>Update</th>
                     </tr>
                     <% for( let index = 0; index < allSlide.length; index++ ) { %>
                     <tr>
                         <form action="/slide/<%= allSlide[index]._id %>?_method=PUT" method="POST">
                             <td><input type="text" name="image" placeholder="<%= allSlide[index].image%>" required></td>
-                            <td><input type="text" name="comment" placeholder="<%= allSlide[index].comment%>" required></td>
+                            <td><input type="text" name="comment" placeholder="<%= allSlide[index].comment%>" required>
+                            <td><input type="text" name="description" placeholder="<%= allSlide[index].description%>"
+                                    required>
+                            </td>
                             <td><input type="submit" value="Update"></td>
                         </form>
                     </tr>
