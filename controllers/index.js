@@ -5,5 +5,6 @@ module.exports = {
     admin: require('./admin'),
     comments: require('./comments'),
     hour: require('./hour'),
-    slide: require('./slide')
+    slide: require('./slide'),
+    root: require('./root')
 }

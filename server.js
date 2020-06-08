@@ -8,7 +8,6 @@ const MongoStore = require('connect-mongo')(session);
 /* Internal Modules */
 const controllers = require('./controllers');
 const adminRequired = require('./middleware/adminRequire');
-const db = require('./models/Index');
 
 /* Instance Module */
 const app = express();
@@ -26,9 +25,9 @@ app.use(
   })
 );
 app.use(methodOverride('_method'));
-
-/* Ability to use the public folder */
 app.use(express.static(__dirname + '/public'));
+
+/* session config */
 app.use(
   session({
     store: new MongoStore({
@@ -43,53 +42,9 @@ app.use(
   })
 );
 
-//Root Route
-app.get('/', function (req, res) {
-  db.Slide.find({}, (error, allSlide) => {
-    if (error) {
-      console.log(error);
-    } else {
-      const context = {
-        allSlide: allSlide,
-        user: req.session.currentUser
-      };
-      console.log(req.session.currentUser)
-      res.render('index', context);
-    }
-  });
-});
-
-//location Route
-app.get('/location', (req, res) => {
-  const context = {
-    user: req.session.currentUser
-  };
-  res.render('location', context);
-});
-
-//About us route
-app.get('/aboutus', (req, res) => {
-  db.Hour.find({}, (error, allHour) => {
-    if (error) {
-      console.log(error);
-    } else {
-      const context = {
-        allHour: allHour,
-        day: [
-          'Sunday',
-          'Monday',
-          'Tuesday',
-          'Wednesday',
-          'Thursday',
-          'Friday',
-          'Saturday',
-        ],
-        user: req.session.currentUser
-      };
-      res.render('about-us', context);
-    }
-  });
-});
+/* Controllers */
+//auth routes
+app.use('', controllers.root);
 
 //auth routes
 app.use('/auth', controllers.auth);

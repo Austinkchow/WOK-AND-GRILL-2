@@ -1,10 +1,8 @@
 const express = require('express');
 const router = express.Router();
-const db = require('../models');
+const db = require('../models/Index');
 
 //routes
-
-//edit route
 
 //update route
 router.put('/:index', (req, res) => {
