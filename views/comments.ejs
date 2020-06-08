@@ -21,11 +21,9 @@
     <!-- Header Section -->
     <header><%- include('partials/nav') %></header>
 
-
-  <!-- Page Heading/Breadcrumbs -->
-  <div class="container">
-      
-            <!-- Title -->
+    <!-- Page Heading/Breadcrumbs -->
+    <div class="container">
+        <!-- Title -->
         <h1 class="mt-4 mb-3">
             Comment Wall
             <small></small>
@@ -73,22 +71,25 @@
                             <!-- <p><%= comment.image %></p>          -->
                         </div>
                         <!-- Time Stamp -->
-                        <p class="date-text m-2">Date: <%= comment.date.getMonth() %>-<%= comment.date.getDate() %>-<%= comment.date.getFullYear() %></p>
+                        <p class="date-text m-2">Date:
+                            <%= comment.date.getMonth() %>-<%= comment.date.getDate() %>-<%= comment.date.getFullYear() %>
+                        </p>
                     </div>
                 </div>
                 <% }) %>
             </div>
-                <!-- /.container -->
+            <!-- /.container -->
         </div>
 
         <!-- Delete Comment Disclaimer -->
         <p class="text-center">Owner has right to deleted unappropriated comments</p>
-    <!-- ------------------- STICKY NOTE WALL --------------------------------------------- -->
+        <!-- ------------------- STICKY NOTE WALL --------------------------------------------- -->
+
 </div>
 
 
-    <!-- Footer -->
-    <%- include('partials/footer') %>
+        <!-- Footer -->
+        <%- include('partials/footer') %>
 
 </body>
 

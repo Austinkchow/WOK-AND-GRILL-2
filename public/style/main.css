@@ -1,31 +1,30 @@
-
-body{
+body {
     background-color: burlywood;
     /* cursor: url('http://www.rw-designer.com/cursor-extern.php?id=63042'), default; */
     cursor: url('/images/Chopsticks.png'), default;
-    font-family: 'Papyrus','fantasy';
-   
+    font-family: 'Papyrus', 'fantasy';
+
 }
 
 /* Header & Nav */
-.nav-link{
+.nav-link {
     font-size: 20px;
-   
+
 }
 
-.web-banner{
+.web-banner {
     text-align: center;
 }
 
-small{
-    font-size:10px;
+small {
+    font-size: 10px;
 }
 
-.icon{
+.icon {
     /* display: none; */
-    color:#D8C180;
+    color: #D8C180;
     font-family: 'Ma Shan Zheng', cursive;
-    display:inline;
+    display: inline;
     font-size: 1.1em;
 }
 
@@ -52,85 +51,89 @@ small{
 
 
 /* Spacing */
-.spacer-top{
-    margin-top:115px;
+.spacer-top {
+    margin-top: 115px;
 }
 
-.spacer-top-reverse{
-    margin-top:-115px;
+.spacer-top-reverse {
+    margin-top: -115px;
 }
 
-.margin-top-10px{
-    margin-top:10px;
+.margin-top-10px {
+    margin-top: 10px;
 }
 
-.static{
+.static {
     position: relative;
     margin-top: -56px;
-    margin-right:-15px;
-    
+    margin-right: -15px;
+
 }
 
 /* Visuals */
-.proverb{
-    margin-top:-60px;
+.proverb {
+    margin-top: -60px;
     position: absolute;
-    z-index:2;
+    z-index: 2;
 }
 
-.waiter{
+.waiter {
     position: absolute;
-    margin-top:-50px;
-    padding:0;
+    margin-top: -50px;
+    padding: 0;
 }
 
 
-.border-black{
+.border-black {
     border: 2px solid black;
 }
 
 /* Card */
-.address{
-    color:black;
+.address {
+    color: black;
 }
 
-.address-body{
+.address-body {
     background-color: rgba(255, 255, 255, 0.85);
 }
-.bg-bamboo{
+
+.bg-bamboo {
     background-image: url("https://i.etsystatic.com/6851879/r/il/a3afb9/1419933494/il_570xN.1419933494_9h7n.jpg");
-    background-size:cover;
+    background-size: cover;
     background-repeat: no-repeat;
     background-position: bottom;
-    border:none;
+    border: none;
 }
 
 /* Table */
-table.table-bordered{
-    border:1px solid black;
-    
-  }
-table.table-bordered tr th{
-    border:1px solid black;
+table.table-bordered {
+    border: 1px solid black;
+
 }
-table.table-bordered > tbody > tr > td{
-    border:1px solid black;
+
+table.table-bordered tr th {
+    border: 1px solid black;
+}
+
+table.table-bordered>tbody>tr>td {
+    border: 1px solid black;
 }
 
 /* Comments */
-.date-text{
+.date-text {
     font-size: .8em;
 }
 
 
-.comments-card{
+.comments-card {
     /* background-image: url("/images/sticky-note.png") !important; */
     background-size: 100% 100%;
     background-repeat: no-repeat;
     background-position: center;
 
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-
+    max-height: 500px;
+    width: 260px;
     position: relative;
     display: -ms-flexbox;
     display: flex;
@@ -139,11 +142,16 @@ table.table-bordered > tbody > tr > td{
     min-width: 0;
     word-wrap: break-word;
     background-clip: border-box;
-    border: 1px solid rgba(0,0,0,.125);
+    border: 1px solid rgba(0, 0, 0, .125);
     border-radius: .25rem;
+<<<<<<< HEAD
     
     max-height: 200px;
   
 
    
+=======
+
+
+>>>>>>> submaster
 }
