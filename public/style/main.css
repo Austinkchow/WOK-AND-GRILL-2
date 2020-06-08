@@ -113,6 +113,7 @@ table.table-bordered {
 
 table.table-bordered tr th {
     border: 1px solid black;
+    background: darkslategray;
 }
 
 table.table-bordered>tbody>tr>td {
@@ -144,14 +145,6 @@ table.table-bordered>tbody>tr>td {
     background-clip: border-box;
     border: 1px solid rgba(0, 0, 0, .125);
     border-radius: .25rem;
-<<<<<<< HEAD
-    
-    max-height: 200px;
-  
-
-   
-=======
 
 
->>>>>>> submaster
 }
