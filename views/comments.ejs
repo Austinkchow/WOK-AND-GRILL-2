@@ -43,30 +43,30 @@
         </ol>
 
 
-        <!-- ------------------- STICKY NOTE WALL --------------------------------------------- -->
+    <!-- ------------------- STICKY NOTE WALL --------------------------------------------- -->
+        
+        <!-- Comment User Input -->
+        <div class="mb-4" style="width:100%;">
+            <% if (user) { %>
+                <h4>Comment</h4>
+                <form action="/comments" method="POST">
+                    <textarea name="text" rows="3" cols="40"style="width:100%;"></textarea>
+                    <input type="submit" value="Create" class="d-block" style="width:100%;">
+                </form>
+                <% } else {%>
+                <h4>Please sign in to comment</h4>
+                <% } %>
+        </div>
+        
         <div class="container">
             <div class="row">
-
-                <!-- Comment User Input -->
-                <div class=" d-inline-block">
-                    <% if (user) { %>
-                    <h4>Comment</h4>
-                    <form action="/comments" method="POST">
-                        <textarea name="text" rows="10" cols="40"></textarea>
-                        <input type="submit" value="Create" class="d-block">
-                    </form>
-                    <% } else {%>
-                    <h4>Please sign in to comment</h4>
-                    <% } %>
-                </div>
-
                 <!-- Stickys Notes List -->
                 <% allComments.forEach(comment => { %>
-                <!-- Change Sticky NOte img -->
-                <div class="col-lg-3 col-sm-6 portfolio-item comments ">
-                    <div class="comments-card" style="background-image: url('<%= comment.image%>');">
+                <!-- Change Sticky Note img -->
+                <div class="col-lg-3 col-sm-6 portfolio-item comments">
+                    <div class="comments-card overflow-auto" style="background-image: url('<%= comment.image%>');">
                         <div class="card-body">
-                            <p class="card-text"><%= comment.text %></p>
+                            <p class="card-text "><%= comment.text %></p>
                             <p class="float-right">-<%= comment.name %></p><br>
                             <!-- <p><%= comment.image %></p>          -->
                         </div>
@@ -85,6 +85,7 @@
         <p class="text-center">Owner has right to deleted unappropriated comments</p>
         <!-- ------------------- STICKY NOTE WALL --------------------------------------------- -->
 
+</div>
 
 
         <!-- Footer -->
