@@ -21,39 +21,74 @@
     <!-- Header Section -->
     <header><%- include('partials/nav') %></header>
 
-    <br />
-    <h1>Comment wall</h1>
-    <% if (user) { %>
-    <h4>Comment</h4>
-    <form action="/comments" method="POST">
-        <textarea name="text" rows="3" cols="40"></textarea>
-        <input type="submit" value="Create">
-    </form>
-    <% } else {%>
-    <h4>Please sign in to comment</h4>
-    <% } %>
+  <!-- Page Heading/Breadcrumbs -->
+  <div class="container">
+    <!-- Title -->
+  <h1 class="mt-4 mb-3">
+      Comment Wall
+      <small></small>
+  </h1>
+
+  <ol class="breadcrumb">
+      <li class="breadcrumb-item">
+          <a href="/">Home</a>
+      </li>
+
+      <li class="breadcrumb-item active">Comment Wall </li>
+
+      <!-- Back Button -->
+      <li class="breadcrumb-item">
+          <a href="javascript:history.back()"> ... Previous Page</a>
+      </li>
+  </ol>
 
 
+  <!-- ------------------- STICKY NOTE WALL --------------------------------------------- -->
     <div class="container">
         <div class="row">
+            
+            <!-- Comment User Input -->
+            <div class=" d-inline-block">
+                <% if (user) { %>
+                    <h4>Comment</h4>
+                    <form action="/comments" method="POST" >
+                        <textarea name="text" rows="3" cols="40"></textarea>
+                        <input type="submit" value="Create" class="d-block">
+                    </form>
+                    <% } else {%>
+                    <h4>Please sign in to comment</h4>
+                    <% } %>
+            </div>
+
+            <!-- Stickys Notes List -->
             <% allComments.forEach(comment => { %>
-            <div class="col-lg-4 col-sm-6 portfolio-item">
-                <div class="card h-100">
+            <!-- Change Sticky NOte img -->
+
+            <div class="col-lg-3 col-sm-6 portfolio-item comments ">
+                <div class="comments-card" style="background-image: url('<%= comment.image%>');">
                     <div class="card-body">
                         <p class="card-text"><%= comment.text %></p>
-                        <p><%= comment.name %></p>
-                        <p><%= comment.date.getMonth() %>-<%= comment.date.getDate() %>-<%= comment.date.getFullYear() %>
-                        </p>
+                        <p class="float-right">-<%= comment.name %></p><br>
+                        <p><%= comment.image %></p>         
                     </div>
+                    <!-- Time Stamp -->
+                    <p class="date-text m-2">Date: <%= comment.date.getMonth() %>-<%= comment.date.getDate() %>-<%= comment.date.getFullYear() %></p>
                 </div>
             </div>
             <% }) %>
         </div>
-        <!-- /.container -->
+            <!-- /.container -->
     </div>
-    <p>Owner has right to deleted unappropriated comments</p>
+
+    <!-- Delete Comment Disclaimer -->
+    <p class="text-center">Owner has right to deleted unappropriated comments</p>
+  <!-- ------------------- STICKY NOTE WALL --------------------------------------------- -->
+
+
+
     <!-- Footer -->
     <%- include('partials/footer') %>
+
 </body>
 
 </html>

@@ -15,8 +15,13 @@ const commentSchema = new mongoose.Schema({
         type: Date,
         default: Date.now
     },
+    image:{
+        type: String
+    }
 
 });
+
+
 
 /* set up model */
 const Comment = mongoose.model('Comment', commentSchema);

@@ -12,7 +12,7 @@
     "url": "git@git.generalassemb.ly:AustinkChow/WOK-AND-GRILL-2.git"
   },
   "author": "Austin Chow, Isaac Shepard",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
@@ -23,5 +23,6 @@
     "express-session": "^1.17.1",
     "method-override": "^3.0.0",
     "mongoose": "^5.9.16"
-  }
+  },
+  "devDependencies": {}
 }
