@@ -111,3 +111,31 @@ table.table-bordered tr th{
 table.table-bordered > tbody > tr > td{
     border:1px solid black;
 }
+
+/* Comments */
+.date-text{
+    font-size: .8em;
+}
+
+
+.comments-card{
+    background-image: url("/images/sticky-note.png") !important;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-clip: border-box;
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: .25rem;
+    
+   
+}

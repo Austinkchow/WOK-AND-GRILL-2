@@ -65,14 +65,14 @@
 
             <!-- Stickys Notes List -->
             <% allComments.forEach(comment => { %>
-            <div class="col-lg-4 col-sm-6 portfolio-item">
-                <div class="card h-100">
+            <div class="col-lg-3 col-sm-6 portfolio-item comments ">
+                <div class="comments-card">
                     <div class="card-body">
                         <p class="card-text"><%= comment.text %></p>
-                        <p><%= comment.name %></p>
-                        <p><%= comment.date.getMonth() %>-<%= comment.date.getDate() %>-<%= comment.date.getFullYear() %>
-                        </p>
+                        <p class="float-right">-<%= comment.name %></p><br>         
                     </div>
+                    <!-- Time Stamp -->
+                    <p class="date-text m-2">Date: <%= comment.date.getMonth() %>-<%= comment.date.getDate() %>-<%= comment.date.getFullYear() %></p>
                 </div>
             </div>
             <% }) %>
