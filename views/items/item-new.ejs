@@ -19,40 +19,62 @@
     <%- include('../partials/bootstrapScripts') %>
 
     <!-- Header Section -->
-    <header>
-        <header><%- include('../partials/nav') %></header>
+    <header><%- include('../partials/nav') %></header>
 
-        <!-- Title -->
-        <h1>Dish</h1>
+    <!-- Page Content -->
+    <div class="container mt-4">
+        <!-- Page Heading/Breadcrumbs -->
+    
+            <!-- Title -->
+            <h1 class="mt-4 mb-3">
+                Item Create Page
+            <small></small>
+            </h1>
+        
+            <!-- BreakCrumb List -->
+            <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a href="/admin">Admin Site Editor</a>
+            </li>
+        
+            <li class="breadcrumb-item active">Item Create</li>
+        
+            <!-- Back Button -->
+            <li class="breadcrumb-item">
+                <a href="javascript:history.back()"> ... Previous Page</a>
+            </li>
+            </ol>
 
-    </header>
-    <!-- Item Creation Section -->
-    <main>
-        <div class="Item Container">
-            <!-- post to menu show page -->
-            <form action="/items" method="post">
-                <select name="menus">
-                    <% allMenu.forEach(menu=> { %>
-                    <option value="<%= menu._id %>"><%= menu.name %></option>
-                    <% }) %>
-                </select>
-                <!-- Item name -->
-                <label for="name">Name</label>
-                <input type="text" name="name" id="">
-                <!-- Item Picture -->
-                <label for="image">Image</label>
-                <input type="text" name="image">
-                <!-- Spiciness -->
-                <label for="spicy">Spicy</label>
-                <input type="number" name="spicy" id="">
-                <!-- Description -->
-                <label for="description">Description</label>
-                <input type="textarea" name="description" id="">
-                <!-- Submit Button -->
-                <input type="submit" value="Create Item">
-            </form>
-        </div>
-    </main>
+
+        <!-- Item Creation Section -->
+        <main >
+            <div class="Item Container">
+                <!-- post to menu show page -->
+                <form action="/items" method="post">
+                    <select name="menus">
+                        <% allMenu.forEach(menu=> { %>
+                        <option value="<%= menu._id %>"><%= menu.name %></option>
+                        <% }) %>
+                    </select>
+                    <!-- Item name -->
+                    <label for="name">Name</label>
+                    <input type="text" name="name" id="">
+                    <!-- Item Picture -->
+                    <label for="image">Image</label>
+                    <input type="text" name="image" placeholder="https://picsum.photos/200/300">
+                    <!-- Spiciness -->
+                    <label for="spicy">Spicy</label>
+                    <input type="number" name="spicy" id="">
+                    <!-- Description -->
+                    <label for="description">Description</label>
+                    <input type="textarea" name="description" id="">
+                    <!-- Submit Button -->
+                    <input type="submit" value="Create Item">
+                </form>
+            </div>
+        </main>
+
+    </div>
 </body>
 
 </html>

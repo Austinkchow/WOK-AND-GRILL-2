@@ -53,8 +53,22 @@ app.get('/', function (req, res) {
         allSlide: allSlide,
         user: req.session.currentUser
       };
-      console.log(req.session.currentUser)
       res.render('index', context);
+    }
+  });
+});
+
+//Error 404 Route
+app.get('/404', function (req, res) {
+  db.Slide.find({}, (error, allSlide) => {
+    if (error) {
+      console.log(error);
+    } else {
+      const context = {
+        allSlide: allSlide,
+        user: req.session.currentUser
+      };
+      res.render('404', context);
     }
   });
 });

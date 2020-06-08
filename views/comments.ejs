@@ -21,17 +21,40 @@
     <!-- Header Section -->
     <header><%- include('partials/nav') %></header>
 
-    <br />
-    <h1>Comment wall</h1>
+  <!-- Page Heading/Breadcrumbs -->
+  <div class="container">
+    <!-- Title -->
+  <h1 class="mt-4 mb-3">
+      Comment Wall
+      <small></small>
+  </h1>
+
+  <ol class="breadcrumb">
+      <li class="breadcrumb-item">
+          <a href="/">Home</a>
+      </li>
+
+      <li class="breadcrumb-item active">Comment Wall </li>
+
+      <!-- Back Button -->
+      <li class="breadcrumb-item">
+          <a href="javascript:history.back()"> ... Previous Page</a>
+      </li>
+  </ol>
+
+  <!-- Comment User Input -->
+   <div class="container">
     <% if (user) { %>
-    <h4>Comment</h4>
-    <form action="/comments" method="POST">
-        <textarea name="text" rows="3" cols="40"></textarea>
-        <input type="submit" value="Create">
-    </form>
-    <% } else {%>
-    <h4>Please sign in to comment</h4>
-    <% } %>
+        <h4>Comment</h4>
+        <form action="/comments" method="POST">
+            <textarea name="text" rows="3" cols="40"></textarea>
+            <input type="submit" value="Create">
+        </form>
+        <% } else {%>
+        <h4>Please sign in to comment</h4>
+        <% } %>
+   </div>
+    
 
 
     <div class="container">
