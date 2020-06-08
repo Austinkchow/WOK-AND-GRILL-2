@@ -3,14 +3,14 @@
 
 <head>
     <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
     <!-- Internal CSS -->
-    <link rel="stylesheet" href="/style/main.css" type="text/css">
-    <link rel="stylesheet" href="/style/carosel.css" type="text/css">
+    <link rel="stylesheet" href="/style/main.css" type="text/css" />
+    <link rel="stylesheet" href="/style/carosel.css" type="text/css" />
     <title>Wok & Grill Homepage</title>
 </head>
 
@@ -25,7 +25,6 @@
     <!-- Advertizing Slides -->
     <section class=" border-black ads">
         <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-
             <ol class="carousel-indicators">
                 <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
                 <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
@@ -34,29 +33,26 @@
 
             <div class="carousel-inner" role="listbox">
                 <!-- Slide One -->
-                <div class="carousel-item active"
-                    style="background-image: url('https://i.ndtvimg.com/i/2016-06/chinese-625_625x350_81466064119.jpg')">
+                <div class="carousel-item active" style="background-image: url(<%= allSlide[0].image %>)">
                     <div class="carousel-caption d-none d-md-block">
-                        <h3>First Slide</h3>
-                        <p>This is a description for the first slide.</p>
+                        <h3><%= allSlide[0].comment %></h3>
+                        <p><%= allSlide[0].description %></p>
                     </div>
                 </div>
 
                 <!-- Slide Two  -->
-                <div class="carousel-item"
-                    style="background-image: url('https://tasteasianfood.com/wp-content/uploads/2019/07/Mooncake-thumbnail-250x180.jpeg')">
+                <div class="carousel-item" style="background-image: url(<%= allSlide[1].image %>)">
                     <div class="carousel-caption d-none d-md-block">
-                        <h3>Second Slide</h3>
-                        <p>This is a description for the second slide.</p>
+                        <h3><%= allSlide[1].comment %></h3>
+                        <p><%= allSlide[1].description %></p>
                     </div>
                 </div>
 
                 <!-- Slide Three -->
-                <div class="carousel-item"
-                    style="background-image: url('https://www.teasoul.net/modules/prestablog/views/img/grid-for-1-7/up-img/115.jpg')">
+                <div class="carousel-item" style="background-image: url(<%= allSlide[2].image %>)">
                     <div class="carousel-caption d-none d-md-block">
-                        <h3>Third Slide</h3>
-                        <p>This is a description for the third slide.</p>
+                        <h3><%= allSlide[2].comment %></h3>
+                        <p><%= allSlide[2].description %></p>
                     </div>
                 </div>
             </div>
@@ -75,7 +71,6 @@
         </div>
     </section>
 
-
     <!-- Main Section -->
     <main class="border-black">
         <!-- Chinese Food Proverb -->
@@ -83,13 +78,13 @@
 
         <!-- Content -->
 
-    <footer class="py-5 bg-dark">
-        <div class="container">
-            <p class="m-0 text-center text-white">Copyright &copy; Wok & Grill 2020</p>
-        </div>
-
-    </footer>
-
+        <footer class="py-5 bg-dark">
+            <div class="container">
+                <p class="m-0 text-center text-white">
+                    Copyright &copy; Wok & Grill 2020
+                </p>
+            </div>
+        </footer>
 </body>
 
 </html>

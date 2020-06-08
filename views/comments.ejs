@@ -11,7 +11,7 @@
     <!-- Internal CSS -->
     <link rel="stylesheet" href="/style/main.css" type="text/css">
     <link href="/style/carosel.css" rel="stylesheet">
-    <title>Wok & Grill Menu Create Page</title>
+    <title>Wok & Grill Comments wall</title>
 </head>
 
 <body>
@@ -23,13 +23,16 @@
 
     <br />
     <h1>Comment wall</h1>
-
-    <h4>How do you fee?</h4>
+    <% if (user) { %>
+    <h4>Comment</h4>
     <form action="/comments" method="POST">
-        <textarea name="text" rows="4" cols="50"></textarea>
-        <p>Name: <input type="text" name="name"></p>
+        <textarea name="text" rows="3" cols="40"></textarea>
         <input type="submit" value="Create">
     </form>
+    <% } else {%>
+    <h4>Please sign in to comment</h4>
+    <% } %>
+
 
     <div class="container">
         <div class="row">
@@ -48,7 +51,7 @@
         </div>
         <!-- /.container -->
     </div>
-
+    <p>Owner has right to deleted unappropriated comments</p>
     <!-- Footer -->
     <%- include('partials/footer') %>
 </body>

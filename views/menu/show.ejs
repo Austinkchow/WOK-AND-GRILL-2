@@ -3,14 +3,14 @@
 
 <head>
   <!-- Required meta tags -->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
   <!-- Internal CSS -->
-  <link rel="stylesheet" href="/style/main.css" type="text/css">
-  <link href="/style/carosel.css" rel="stylesheet">
+  <link rel="stylesheet" href="/style/main.css" type="text/css" />
+  <link href="/style/carosel.css" rel="stylesheet" />
   <title>Wok & Grill Menu Show page</title>
 </head>
 
@@ -23,28 +23,28 @@
     <%- include('../partials/nav') %>
   </header>
 
-  
   <!-- Page Content -->
   <div class="container">
-       <!-- Page Heading/Breadcrumbs -->
+    <!-- Page Heading/Breadcrumbs -->
 
-      <!-- Title -->
-      <h1 class="mt-4 mb-3"><%= foundMenu.name %>
-        <small></small>
-      </h1>
+    <!-- Title -->
+    <h1 class="mt-4 mb-3">
+      <%= foundMenu.name %>
+      <small></small>
+    </h1>
 
-      <ol class="breadcrumb">
-        <li class="breadcrumb-item">
-          <a href="/menu">Menu</a>
-        </li>
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item">
+        <a href="/menu">Menu</a>
+      </li>
 
-        <li class="breadcrumb-item active"><%= foundMenu.name %></li>
+      <li class="breadcrumb-item active"><%= foundMenu.name %></li>
 
-        <!-- Back Button -->
-        <li class="breadcrumb-item">
-          <a href="javascript:history.back()"> ... Previous Page</a>
-        </li>
-      </ol>
+      <!-- Back Button -->
+      <li class="breadcrumb-item">
+        <a href="javascript:history.back()"> ... Previous Page</a>
+      </li>
+    </ol>
 
     <!-- Items List Within the Menu -->
     <div class="row">
@@ -54,17 +54,15 @@
         <div class="card h-100">
           <!-- ----------------------C A R D---C O N T E N T -------------------------- -->
           <!-- Item Image -->
-          <img class="card-img-top" src="<%= item.image %>" alt="Item Image" height="300">
-          
+          <img class="card-img-top" src="<%= item.image %>" alt="Item Image" height="300" />
+
           <div class="card-body">
             <!-- Name -->
-            <a href="/items/<%= item._id %> ">
             <h4 class="card-title"><%= item.name %></h4>
-          </a>
             <!-- Description -->
-            <p class="card-text"> <%= item.description %> </p>
+            <p class="card-text"><%= item.description %></p>
           </div>
-           <!-- ----------------------C A R D---C O N T E N T -------------------------- -->
+          <!-- ----------------------C A R D---C O N T E N T -------------------------- -->
         </div>
       </div>
 
@@ -72,7 +70,6 @@
     </div>
     <!-- /.container -->
   </div>
-
 </body>
 
 </html>

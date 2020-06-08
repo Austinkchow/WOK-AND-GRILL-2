@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const db = require('../models');
-
+const db = require('../models/Index');
+const adminRequired = require('../middleware/adminRequire');
 //routes
 
 //index route
@@ -12,6 +12,7 @@ router.get('/', (req, res) => {
     } else {
       const context = {
         allMenu: allMenu,
+        user: req.session.currentUser
       };
       res.render('menu/index', context);
     }
@@ -19,8 +20,11 @@ router.get('/', (req, res) => {
 });
 
 //new route
-router.get('/new', (req, res) => {
-  res.render('menu/new');
+router.get('/new', adminRequired, (req, res) => {
+  const context = {
+    user: req.session.currentUser
+  };
+  res.render('menu/new', context);
 });
 
 //create route
@@ -43,6 +47,7 @@ router.get('/:index', (req, res) => {
       } else {
         const context = {
           foundMenu: foundMenu,
+          user: req.session.currentUser
         };
         res.render('menu/show', context);
       }
@@ -50,13 +55,14 @@ router.get('/:index', (req, res) => {
 });
 
 //edit route
-router.get('/:index/edit', (req, res) => {
+router.get('/:index/edit', adminRequired, (req, res) => {
   db.Menu.findById(req.params.index, (error, editedMenu) => {
     if (error) {
       console.log(error);
     } else {
       const context = {
         editedMenu: editedMenu,
+        user: req.session.currentUser
       };
       res.render('menu/edit', context);
     }
