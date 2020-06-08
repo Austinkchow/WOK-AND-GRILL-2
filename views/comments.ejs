@@ -43,11 +43,8 @@
   </ol>
 
 
-
-
-
+  <!-- ------------------- STICKY NOTE WALL --------------------------------------------- -->
     <div class="container">
-
         <div class="row">
             
             <!-- Comment User Input -->
@@ -65,11 +62,14 @@
 
             <!-- Stickys Notes List -->
             <% allComments.forEach(comment => { %>
+            <!-- Change Sticky NOte img -->
+
             <div class="col-lg-3 col-sm-6 portfolio-item comments ">
-                <div class="comments-card">
+                <div class="comments-card" style="background-image: url('<%= comment.image%>');">
                     <div class="card-body">
                         <p class="card-text"><%= comment.text %></p>
-                        <p class="float-right">-<%= comment.name %></p><br>         
+                        <p class="float-right">-<%= comment.name %></p><br>
+                        <p><%= comment.image %></p>         
                     </div>
                     <!-- Time Stamp -->
                     <p class="date-text m-2">Date: <%= comment.date.getMonth() %>-<%= comment.date.getDate() %>-<%= comment.date.getFullYear() %></p>
@@ -82,6 +82,9 @@
 
     <!-- Delete Comment Disclaimer -->
     <p class="text-center">Owner has right to deleted unappropriated comments</p>
+  <!-- ------------------- STICKY NOTE WALL --------------------------------------------- -->
+
+
 
     <!-- Footer -->
     <%- include('partials/footer') %>

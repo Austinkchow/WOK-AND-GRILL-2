@@ -21,9 +21,11 @@ router.get('/', (req, res) => {
 
 //create route
 router.post('/', (req, res) => {
+    const colorNote = noteColor(3);
     comment = {
         name: req.session.currentUser.username,
-        text: req.body.text
+        text: req.body.text,
+        image: `images/${colorNote}`
     }
     db.Comment.create(comment, (error, addComment) => {
         if (error) {
@@ -44,5 +46,16 @@ router.delete('/:id', (req, res) => {
         }
     })
 })
+
+//Random Sticky Note Color Selector Function
+//param: numColor - number of different color sticky notes. (3 for now)
+const colorArray=["sticky-note.png", "sticky-note-red.png", "sticky-note-green.png"];
+
+const noteColor = (numColors) =>{
+    let randNum = Math.floor(Math.random()*numColors);
+    return colorArray[randNum];
+
+}
+
 
 module.exports = router;
