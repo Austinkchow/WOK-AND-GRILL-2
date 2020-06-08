@@ -42,23 +42,28 @@
       </li>
   </ol>
 
-  <!-- Comment User Input -->
-   <div class="container">
-    <% if (user) { %>
-        <h4>Comment</h4>
-        <form action="/comments" method="POST">
-            <textarea name="text" rows="3" cols="40"></textarea>
-            <input type="submit" value="Create">
-        </form>
-        <% } else {%>
-        <h4>Please sign in to comment</h4>
-        <% } %>
-   </div>
-    
+
+
 
 
     <div class="container">
+
         <div class="row">
+            
+            <!-- Comment User Input -->
+            <div class=" d-inline-block">
+                <% if (user) { %>
+                    <h4>Comment</h4>
+                    <form action="/comments" method="POST" >
+                        <textarea name="text" rows="3" cols="40"></textarea>
+                        <input type="submit" value="Create" class="d-block">
+                    </form>
+                    <% } else {%>
+                    <h4>Please sign in to comment</h4>
+                    <% } %>
+            </div>
+
+            <!-- Stickys Notes List -->
             <% allComments.forEach(comment => { %>
             <div class="col-lg-4 col-sm-6 portfolio-item">
                 <div class="card h-100">
@@ -72,11 +77,15 @@
             </div>
             <% }) %>
         </div>
-        <!-- /.container -->
+            <!-- /.container -->
     </div>
-    <p>Owner has right to deleted unappropriated comments</p>
+
+    <!-- Delete Comment Disclaimer -->
+    <p class="text-center">Owner has right to deleted unappropriated comments</p>
+
     <!-- Footer -->
     <%- include('partials/footer') %>
+
 </body>
 
 </html>
