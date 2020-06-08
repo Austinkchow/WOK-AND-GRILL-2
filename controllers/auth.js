@@ -40,6 +40,7 @@ router.post('/register', async function (req, res) {
 router.get('/login', function (req, res) {
     const context = {
         user: req.session.currentUser,
+        message: ""
     };
     res.render('auth/login', context);
 });
@@ -51,11 +52,19 @@ router.post('/login', async function (req, res) {
             email: req.body.email,
         });
         if (!foundUser) {
-            return res.redirect('/auth/log-in');
+            return res.render('auth/login', {
+                message: 'Invalid Email or Password / 错 误 的 电 子 邮 件 或 密 码',
+                user: req.session.currentUser,
+
+            });
         }
         const match = await bcrypt.compare(req.body.password, foundUser.password);
         if (!match) {
-            return res.redirect('/auth/log-in');
+            return res.render('auth/login', {
+                message: 'Invalid Email or Password / 错 误 的 电 子 邮 件 或 密 码',
+                user: req.session.currentUser,
+
+            });
         }
         req.session.currentUser = {
             id: foundUser._id,
@@ -74,42 +83,6 @@ router.post('/login', async function (req, res) {
     }
 });
 
-router.get('/log-in', function (req, res) {
-    const context = {
-        user: req.session.currentUser,
-    };
-    res.render('auth/log-in', context);
-});
-
-//login post
-router.post('/log-in', async function (req, res) {
-    try {
-        const foundUser = await db.User.findOne({
-            email: req.body.email,
-        });
-        if (!foundUser) {
-            return res.redirect('/auth/log-in');
-        }
-        const match = await bcrypt.compare(req.body.password, foundUser.password);
-        if (!match) {
-            return res.redirect('/auth/log-in');
-        }
-        req.session.currentUser = {
-            id: foundUser._id,
-            username: foundUser.username,
-        };
-        if (foundUser.username === 'admin') {
-            res.redirect('/admin');
-        } else {
-            res.redirect('/');
-        }
-    } catch (err) {
-        console.log(err);
-        return res.send({
-            err,
-        });
-    }
-});
 
 //logout
 router.delete('/logout', async function (req, res) {

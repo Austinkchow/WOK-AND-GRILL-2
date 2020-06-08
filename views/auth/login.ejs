@@ -28,6 +28,9 @@
       <div class="col-sm-6 mx-auto my-4">
         <!-- Title -->
         <h1>Login</h1>
+        <% if(message){ %>
+        <p><%= message %> </p>
+        <%}%>
         <!-- Form -->
         <form action="/auth/login" method="POST">
           <input type="email" name="email" placeholder="Email" required />
