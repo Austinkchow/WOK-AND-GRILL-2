@@ -13,7 +13,7 @@ const adminRequired = require('./middleware/adminRequire');
 const app = express();
 
 /* Global Variables */
-const PORT = 4000;
+app.listen(process.env.PORT || 4000)
 
 /* app configuration */
 app.set('view engine', 'ejs');
@@ -31,7 +31,7 @@ app.use(express.static(__dirname + '/public'));
 app.use(
   session({
     store: new MongoStore({
-      url: 'mongodb://localhost:27017/wokAndGrill',
+      url: process.env.MONGODB_URI || 'mongodb://localhost:27017/wokAndGrill',
     }),
     secret: 'wok and grill',
     resave: false,
