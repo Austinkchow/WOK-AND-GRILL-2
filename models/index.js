@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 //connect to mongodb
 const connectionString = 'mongodb://localhost:27017/wokAndGrill';
 mongoose
-  .connect(connectionString, {
+  .connect(process.env.MONGODB_URI || connectionString, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useCreateIndex: true,
