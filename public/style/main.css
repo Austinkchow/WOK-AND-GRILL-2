@@ -148,3 +148,8 @@ table.table-bordered>tbody>tr>td {
 
 
 }
+
+icon:hover {
+    color: rgb(163, 121, 7);
+    ;
+}
