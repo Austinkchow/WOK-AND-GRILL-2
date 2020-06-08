@@ -29,6 +29,11 @@ small{
     font-size: 1.1em;
 }
 
+.icon:hover{
+    /* color:rgb(163, 121, 7);; */
+    color:black;
+}
+
 /* .nav-link:hover div{
     display:inline-block;
 } */
@@ -137,5 +142,8 @@ table.table-bordered > tbody > tr > td{
     border: 1px solid rgba(0,0,0,.125);
     border-radius: .25rem;
     
+    max-height: 200px;
+  
+
    
 }
